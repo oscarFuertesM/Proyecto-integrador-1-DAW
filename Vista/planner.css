@@ -1,6 +1,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -103,39 +104,23 @@ body{
     
 }
 
-.tipos{
+.tiposimg{
     width: 150px;
     height: 70px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
 }
 
-#agua{
-    grid-area: agua;
-    background-color: #acacac;
-}
-#bicho{
-    grid-area: bicho;
+.tipos{
+  
+
+    
 }
 
-#dragon{
-    grid-area: dragon;
+.contador{
+    color: red;
+    font-size: xx-large;
+    
 }
 
-#electrico{
-    grid-area: electrico;
-}
-
-#fantasma{
-    grid-area: fantasma;
-}
-
-#fuego{
-    grid-area: fuego;
-}
-
-#hielo{
-    grid-area: hielo;
-}
-
-#lucha{
-    grid-area: lucha;
-}
