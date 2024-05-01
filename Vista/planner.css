@@ -93,4 +93,49 @@ body{
     height: 700px;
     margin-left: 2%;
     border-radius: 50px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas: 
+    "agua bicho dragon electrico"
+    "fantasma fuego hielo lucha"
+    "normal planta psiquico roca"
+    "siniestro tierra veneno volador";
+    
+}
+
+.tipos{
+    width: 150px;
+    height: 70px;
+}
+
+#agua{
+    grid-area: agua;
+    background-color: #acacac;
+}
+#bicho{
+    grid-area: bicho;
+}
+
+#dragon{
+    grid-area: dragon;
+}
+
+#electrico{
+    grid-area: electrico;
+}
+
+#fantasma{
+    grid-area: fantasma;
+}
+
+#fuego{
+    grid-area: fuego;
+}
+
+#hielo{
+    grid-area: hielo;
+}
+
+#lucha{
+    grid-area: lucha;
 }
