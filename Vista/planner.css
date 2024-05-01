@@ -35,6 +35,16 @@ body{
     border-radius: 10px;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+
 #logo{
     height: 100px;
     width: 150px;
