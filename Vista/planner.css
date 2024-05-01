@@ -7,6 +7,7 @@ body{
     background-color: #191919;
 }
 
+
 .head{
     background-color: rgb(101, 98, 104);
     border-radius: 50px;
@@ -43,17 +44,25 @@ body{
     width: 100px;
 }
 
+.planificador{
+    margin-top: 50px;
+    width: 80%;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
 .team{
     background-color: rgb(101, 98, 104);
-    width: 40%;
+    width: 50%;
     height: 700px;
-    margin-left: 10%;
+    margin-right: 2%;
     border-radius: 50px;
-    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
+   
 }
 
 .poke{
@@ -71,8 +80,7 @@ body{
 }
 
 .pokemon{
-    grid-column: 1;
-    
+    grid-column: 1; 
 }
 
 .movs{
@@ -80,11 +88,9 @@ body{
 }
 
 .debilidades{
-    background-color: rgb(172, 107, 238);
-    width: 40%;
-    height: 800px;
-    margin-left: 60%;
+    background-color: rgb(101, 98, 104);
+    width: 50%;
+    height: 700px;
+    margin-left: 2%;
     border-radius: 50px;
-    margin-top: 50px;
-
 }
