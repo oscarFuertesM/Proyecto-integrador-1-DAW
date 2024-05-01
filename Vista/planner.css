@@ -1,0 +1,57 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-color: #191919;
+}
+
+.head{
+    background-color: rgb(101, 98, 104);
+    border-radius: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.txt{
+    font-size: x-large;
+    background-color:#acacac ;
+    border-radius: 10px;
+}
+
+#logo{
+    height: 100px;
+    width: 150px;
+}
+
+#pokeball{
+    height: 100px;
+    width: 100px;
+}
+
+.team{
+    background-color: rgb(101, 98, 104);
+    width: 80%;
+    height: 500px;
+    margin-left: 10%;
+    border-radius: 50px;
+    margin-top: 50px;
+    align-content: top;
+    display:flex;
+    justify-content: space-evenly;
+
+}
