@@ -45,13 +45,23 @@ body{
 
 .team{
     background-color: rgb(101, 98, 104);
-    width: 80%;
-    height: 500px;
+    width: 40%;
+    height: 700px;
     margin-left: 10%;
     border-radius: 50px;
     margin-top: 50px;
-    align-content: top;
-    display:flex;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+
+}
+
+.poke{
+    background-color: rgb(216, 158, 158);
+    width: 40%;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 
 }
