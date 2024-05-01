@@ -78,6 +78,8 @@ body{
     grid-column-gap: 20px;
     align-content: space-evenly;
     align-content: center;
+    border: 5px solid black;
+    
 }
 
 .pokemon{
@@ -107,20 +109,21 @@ body{
 .tiposimg{
     width: 150px;
     height: 70px;
-    display: block;
     margin: auto;
     margin-top: 20px;
 }
 
 .tipos{
-  
-
-    
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
 }
 
 .contador{
     color: red;
     font-size: xx-large;
+    margin-top: auto;
+    margin-bottom: auto;
     
 }
 
