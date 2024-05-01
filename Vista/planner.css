@@ -76,18 +76,37 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
-    align-content: space-evenly;
-    align-content: center;
+    
     border: 5px solid black;
     
 }
 
+.pokediv{
+    display: flex;
+    justify-content: center;
+}
+
+.movsdiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
 .pokemon{
-    grid-column: 1; 
+    grid-column: 1;
+    width: 85%;
+    height: 15%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .movs{
     grid-column: 2;
+    height: 15%;
+    width: 85%;
+    margin-top: 5px;
 }
 
 .debilidades{
