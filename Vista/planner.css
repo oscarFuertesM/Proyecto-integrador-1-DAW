@@ -35,6 +35,16 @@ body{
     border-radius: 10px;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+
 #logo{
     height: 100px;
     width: 150px;
@@ -117,12 +127,6 @@ body{
     border-radius: 50px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-areas: 
-    "agua bicho dragon electrico"
-    "fantasma fuego hielo lucha"
-    "normal planta psiquico roca"
-    "siniestro tierra veneno volador";
-    
 }
 
 .tiposimg{
