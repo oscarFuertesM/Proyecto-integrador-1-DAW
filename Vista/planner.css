@@ -127,12 +127,6 @@ a:visited{
     border-radius: 50px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-areas: 
-    "agua bicho dragon electrico"
-    "fantasma fuego hielo lucha"
-    "normal planta psiquico roca"
-    "siniestro tierra veneno volador";
-    
 }
 
 .tiposimg{
