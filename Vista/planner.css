@@ -37,6 +37,13 @@ body{
     border-radius: 10px;
 }
 
+#admin{
+    font-size: x-large;
+    background-color:#acacac ;
+    border-radius: 10px;
+    display: none;
+}
+
 a{
     text-decoration: none;
     color: inherit;
@@ -50,6 +57,7 @@ a:visited{
 #logo{
     height: 100px;
     width: 150px;
+    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
 }
 
 #pokeball{
@@ -71,7 +79,7 @@ a:visited{
     width: 50%;
     height: 700px;
     margin-right: 2%;
-    border-radius: 50px;
+    border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -126,7 +134,7 @@ a:visited{
     width: 50%;
     height: 700px;
     margin-left: 2%;
-    border-radius: 50px;
+    border-radius: 20px;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }

@@ -75,22 +75,9 @@ a:visited{
     justify-content: center;
     border-radius: 20px;
     border: 5px solid rgb(0, 0, 0);
-    box-shadow: 1px 1px 5px 5px red;
+    box-shadow: 1px 1px 5px 5px #FFCC03;
     
     
-}
-
-.login ul{
-    justify-content: center;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-top: 15%;
-}
-
-.login li{
-    margin-top: 5%;
 }
 
 .login h1{

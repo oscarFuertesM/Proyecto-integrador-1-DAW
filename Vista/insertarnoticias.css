@@ -29,7 +29,6 @@ body{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    
 }
 
 .txt{
@@ -59,45 +58,55 @@ a:visited{
     width: 100px;
 }
 
-.noticias{
-    background-color: rgb(101, 98, 104);
-    width: 80%;
-    margin-top: 2%;
-    border-radius: 20px;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+
+
+.insertarnoti {
+    width: 78%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 5px 5px #FFCC03;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
     
 }
 
-.publicacion{
-    background-color: #acacac;
-    margin-top: 1%;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2%;
-}
-
-.publicacion h2{
-    margin-left: 2%;
-    font-size: xx-large;
-}
-
-.publicacion p{
-    margin-left: 2%;
-    margin-top: 2%;
-    font-size: large;
-}
-
-.titunot{
-    background-color: rgb(147, 139, 155);
-    border-radius: 50px;
-    width: 18%;
-    margin-left: auto;
-    margin-right: auto;
+button[type="submit"] {
     display: block;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }
