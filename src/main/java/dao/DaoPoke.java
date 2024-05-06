@@ -24,7 +24,7 @@ public class DaoPoke {
 	}
 	
 	
-	private ArrayList<Pokemon> listar() throws SQLException{
+	public ArrayList<Pokemon> listar() throws SQLException{
 		
 		String sql = "SELECT * FROM pokes";
 		
