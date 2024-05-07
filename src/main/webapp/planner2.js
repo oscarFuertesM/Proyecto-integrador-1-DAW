@@ -1,12 +1,13 @@
 function datos(){	 
-  let usuario; 
+  let resultado; 
   let xhr = new XMLHttpRequest();
-       xhr.onreadystatechange = function () {
+       xhr.onload = function () {
            if (xhr.readyState === 4){
                if (xhr.status === 200) {
                  try{
-            	 	usuario = JSON.parse(xhr.responseText);            
-      
+            	 	resultado = JSON.parse(xhr.responseText);            
+      				//var pokemon = xhr.responseText;
+      				console.log(resultado);
                  }catch (e) {
 					// TODO: handle exception
 					
@@ -22,36 +23,54 @@ function datos(){
 
 window.addEventListener("DOMContentLoaded", datos())
 
-/*function generateTeam(pokemons) {
-	
-	pokemon.forEach(pokemon => {
-		
-	})
-	
-	<div class="poke">
-          <div class="pokediv">
-          
-          <select class="pokemon" name="Pokemon">
-            <option value="Charmander">Charmander</option>
-          </select>
-          </div>
-          <div class="movsdiv">
-          
-          <select class="movs" name="movs">
-            <option value="Lanzallamas">Lanzallamas</option>
-          </select>
+// Insertar los 6 huecos del equipo
+function agregarPokemons() {
+  
+  var section = document.getElementById('equipo');
+  if (section){
+  
+  var div = document.createElement('div');
+  div.className = 'poke';
 
-          <select class="movs" name="movs">
-            <option value="Lanzallamas">Lanzallamas</option>
-          </select>
+  // Aquí es donde se copia el codigo HTML que queremos insertar
+  div.innerHTML = `
+    <div class="pokediv">
+      <select class="pokemon" name="Pokemon">
+        <option value="Charmander">Charmander</option>
+      </select>
+    </div>
+    <div class="movsdiv">
+      <select class="movs" name="movs">
+        <option value="Lanzallamas">Lanzallamas</option>
+      </select>
 
-          <select class="movs" name="movs">
-            <option value="Lanzallamas">Lanzallamas</option>
-          </select>
+      <select class="movs" name="movs">
+        <option value="Lanzallamas">Lanzallamas</option>
+      </select>
 
-          <select class="movs" name="movs">
-            <option value="Lanzallamas">Lanzallamas</option>
-          </select>
-          </div>
-        </div>
-}*/
+      <select class="movs" name="movs">
+        <option value="Lanzallamas">Lanzallamas</option>
+      </select>
+
+      <select class="movs" name="movs">
+        <option value="Lanzallamas">Lanzallamas</option>
+      </select>
+    </div>
+  `;
+
+  // Metemos el Div dentro del Section
+  section.appendChild(div);
+} else{
+  console.error("FAIL")
+}
+}
+
+// Y con esta función lo repetimos 6 veces, una por cada Pokemon del equipo
+function generarEquipo() {
+  for (var i = 0; i < 6; i++) {
+    agregarPokemons();
+  }
+}
+
+// Llamar a la función para repetir la generación 6 veces
+window.addEventListener("DOMContentLoaded", generarEquipo());
