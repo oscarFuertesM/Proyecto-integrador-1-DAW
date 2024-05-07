@@ -1,0 +1,144 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #191919;
+}
+
+
+.head{
+    background-color: rgb(101, 98, 104);
+    border-radius: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 5px 5px red;
+}
+
+.header{
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.txt{
+    font-size: x-large;
+    background-color:#acacac ;
+    border-radius: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+
+#logo{
+    height: 100px;
+    width: 150px;
+    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+
+}
+
+#pokeball{
+    height: 100px;
+    width: 100px;
+}
+
+.container{
+    
+    margin-top: 2%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.login{
+    background-color: rgb(101, 98, 104);
+    height: 400px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 5px 5px #FFCC03;
+    
+    
+}
+
+.login h1{
+    text-align: center;
+    margin-top: 5%;
+}
+
+form {
+    width: 280px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los grupos de campos */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+/* Estilo para los campos de entrada y textarea */
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo para el botón de enviar */
+button[type="submit"] {
+    background-color: #FFCC03;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #b89300;
+}
+
+.registro a{
+    text-decoration: underline;
+    color:blue;
+    
+}
+
+.signin{
+    margin-top: 10%;
+}
