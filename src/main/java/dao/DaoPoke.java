@@ -43,6 +43,9 @@ public class DaoPoke {
 			pokes.add(new Pokemon(result.getInt("pokedex"), result.getString("nombre"), result.getString("tipo1"), result.getString("tipo2")));
 			
 		}
+		
+		System.out.println(pokes.get(3).getNombre());
+		
 		return pokes;
 		
 	}

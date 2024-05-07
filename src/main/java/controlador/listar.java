@@ -33,7 +33,25 @@ public class listar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+
+		try {
+		
+			PrintWriter out = response.getWriter();
+		
+			DaoPoke dao = new DaoPoke();
+			
+			String listaPoke = dao.listarJson();
+			
+			//System.out.println(listaPoke);
+			
+			response.getWriter().append(listaPoke);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -41,6 +59,7 @@ public class listar extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		try {
 		DaoPoke lista;
 		PrintWriter out = response.getWriter();

@@ -11,7 +11,7 @@ public class ConexionDB {
 	public static Connection instance = null;
 
 	public static Connection getConexion() throws SQLException {
-
+		
 		if (instance == null) {
 			
 			Properties props = new Properties();

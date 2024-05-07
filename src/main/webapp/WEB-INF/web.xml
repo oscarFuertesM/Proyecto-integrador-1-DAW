@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>pojboi</display-name>
+    <servlet-name>pojboi</servlet-name>
+    <servlet-class>controlador.pojboi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pojboi</servlet-name>
+    <url-pattern>/pojboi</url-pattern>
+  </servlet-mapping>
 </web-app>
