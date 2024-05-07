@@ -22,7 +22,7 @@ function datos(){
 
 window.addEventListener("DOMContentLoaded", datos())
 
-function generateTeam(pokemons) {
+/*function generateTeam(pokemons) {
 	
 	pokemon.forEach(pokemon => {
 		
@@ -54,4 +54,4 @@ function generateTeam(pokemons) {
           </select>
           </div>
         </div>
-}
+}*/
