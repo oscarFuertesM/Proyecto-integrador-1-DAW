@@ -29,4 +29,14 @@
     <servlet-name>pojboi</servlet-name>
     <url-pattern>/pojboi</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestiónNoticia</display-name>
+    <servlet-name>GestiónNoticia</servlet-name>
+    <servlet-class>controlador.GestiónNoticia</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestiónNoticia</servlet-name>
+    <url-pattern>/GestiónNoticia</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -25,16 +25,16 @@
       <section class="contenedor">
       <div class="insertarnoti">
         <h2>Introducir Noticia</h2>
-        <form id="newsForm">
-            <div class="form-group">
-                <label for="title">Título:</label>
-                <input type="text" id="title" name="title" required>
+        <form id="nuevoform" name="noticia" action="GestiónNoticia" method="post">
+            <div class="formulario">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
             </div>
-            <div class="form-group">
-                <label for="content">Contenido:</label>
-                <textarea id="content" name="content" rows="12" required></textarea>
+            <div class="formulario">
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" rows="12" required></textarea>
             </div>
-            <button type="submit">Guardar Noticia</button>
+            <button type="submit" value="guardar">Guardar Noticia</button>
         </form>
         </div>
         </section>
