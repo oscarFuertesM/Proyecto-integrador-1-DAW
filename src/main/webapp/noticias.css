@@ -18,6 +18,8 @@ body{
     margin-top: 20px;
     align-items: center;
     justify-content: center;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 5px 5px red;
 }
 
 .header{
@@ -27,6 +29,7 @@ body{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    
 }
 
 .txt{
@@ -48,6 +51,7 @@ a:visited{
 #logo{
     height: 100px;
     width: 150px;
+    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
 }
 
 #pokeball{
@@ -57,6 +61,44 @@ a:visited{
 
 .noticias{
     background-color: rgb(101, 98, 104);
-    width: 90%;
-    height: 100%;
+    width: 80%;
+    margin-top: 2%;
+    border-radius: 20px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.publicacion{
+    background-color: #acacac;
+    margin-top: 1%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
+.publicacion h2{
+    margin-left: 2%;
+    font-size: xx-large;
+}
+
+.publicacion p{
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: large;
+}
+
+.titunot{
+    background-color: rgb(147, 139, 155);
+    border-radius: 50px;
+    width: 18%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

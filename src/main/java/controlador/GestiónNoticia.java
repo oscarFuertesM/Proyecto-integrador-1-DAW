@@ -5,25 +5,24 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import modelo.Pokemon;
+import modelo.Noticia;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
+import dao.DaoNoticia;
 import dao.DaoPoke;
 
 /**
- * Servlet implementation class listar
+ * Servlet implementation class GestiónNoticia
  */
-public class listar extends HttpServlet {
+public class GestiónNoticia extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public listar() {
+    public GestiónNoticia() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,25 +32,26 @@ public class listar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	
-
-		try {
 		
+		
+		try {
+			
 			//PrintWriter out = response.getWriter();
 		
-			DaoPoke dao = new DaoPoke();
+			DaoNoticia dao = new DaoNoticia();
 			
-			String listaPoke = dao.listarJson();
+			String listaNoticia = dao.listarJson();
 			
-			//System.out.println(listaPoke);
 			
-			response.getWriter().append(listaPoke);
+			response.getWriter().append(listaNoticia);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 
 	/**
@@ -60,34 +60,18 @@ public class listar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		/*try {
-		DaoPoke lista;
-		PrintWriter out = response.getWriter();
+		String titulo = request.getParameter("titulo");
+		String texto = request.getParameter("contenido");
 		
+		Noticia n1 = new Noticia(titulo, texto);
+		System.out.println(n1.toString());
 		
-			lista = new DaoPoke();
-			
-			ArrayList<Pokemon> listaPoke = lista.listar();
-			
-			out.print("<ul>");
-			for(Pokemon n : listaPoke) {
-				System.out.println(n);
-			out.print("<li>" + n.getNombre());
-			
-			}
-			
-			out.print("<ul>");
-
-			
-			
+		try {
+			n1.insertar();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
-		
-		
-		
-		
+		}
 		
 	}
 
