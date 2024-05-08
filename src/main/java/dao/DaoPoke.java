@@ -44,7 +44,7 @@ public class DaoPoke {
 			
 		}
 		
-		System.out.println(pokes.get(3).getNombre());
+		//System.out.println(pokes.get(3).getNombre());
 		
 		return pokes;
 		

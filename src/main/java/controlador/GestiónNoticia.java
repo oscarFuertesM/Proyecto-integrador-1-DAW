@@ -10,6 +10,9 @@ import modelo.Noticia;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import dao.DaoNoticia;
+import dao.DaoPoke;
+
 /**
  * Servlet implementation class GestiónNoticia
  */
@@ -29,7 +32,26 @@ public class GestiónNoticia extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		try {
+			
+			//PrintWriter out = response.getWriter();
+		
+			DaoNoticia dao = new DaoNoticia();
+			
+			String listaNoticia = dao.listarJson();
+			
+			
+			response.getWriter().append(listaNoticia);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 	/**

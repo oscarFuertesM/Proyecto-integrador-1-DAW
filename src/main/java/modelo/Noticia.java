@@ -58,7 +58,7 @@ public class Noticia {
 		return "Noticia [idNoti=" + idNoti + ", titulo=" + titulo + ", texto=" + texto + "]";
 	}
 	
-	
+	//insertar noticia
 	public void insertar() throws SQLException {
 		DaoNoticia dao = new DaoNoticia();
 		dao.insertarnoti(this);

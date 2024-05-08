@@ -38,7 +38,7 @@ public class listar extends HttpServlet {
 
 		try {
 		
-			PrintWriter out = response.getWriter();
+			//PrintWriter out = response.getWriter();
 		
 			DaoPoke dao = new DaoPoke();
 			
