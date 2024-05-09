@@ -35,7 +35,7 @@ function generarnoticias(noticia) {
 		div.className = 'publicacion';
 
 		// Aquí es donde se copia el codigo HTML que queremos insertar
-		div.innerHTML = "<h2>" + noticia.titulo + "</h2><p>" + noticia.texto + "</p><button><a href='EditarNoticias?id="+noticia.idNoti+"'>Editar</a></button>";
+		div.innerHTML = "<h2>" + noticia.titulo + "</h2><p>" + noticia.texto + "</p><button><a href='insertarnoticias.html?id="+noticia.idNoti+"'>Editar</a></button>";
 
 		// Metemos el Div dentro del Section
 		section.insertBefore(div, section.firstChild);
