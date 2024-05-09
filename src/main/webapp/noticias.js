@@ -35,7 +35,7 @@ function generarnoticias(noticia) {
 		div.className = 'publicacion';
 
 		// Aquí es donde se copia el codigo HTML que queremos insertar
-		div.innerHTML = "<h2>" + noticia.titulo + "</h2><p>" + noticia.texto + "</p>";
+		div.innerHTML = "<h2>" + noticia.titulo + "</h2><p>" + noticia.texto + "</p><button><a href='EditarNoticias?id="+noticia.idNoti+"'>Editar</a></button>";
 
 		// Metemos el Div dentro del Section
 		section.insertBefore(div, section.firstChild);
@@ -141,7 +141,7 @@ function editarNoticia(idNoti) {
 	//.addEventListener('click', function () {
       //          console.log("puto");
         //        editarNoticia(resultado.idNoti); // Llamar a la función de edición con el ID de la noticia
-          //  });
+          //  });*/
 
 
 

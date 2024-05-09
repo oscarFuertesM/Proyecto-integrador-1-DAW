@@ -57,7 +57,7 @@ public class DaoNoticia {
 		return noticias;
 	}
 	
-public String listarJson() throws SQLException {
+		public String listarJson() throws SQLException {
 		
 		String txtJSON = "";
 		
@@ -75,6 +75,21 @@ public String listarJson() throws SQLException {
 		
 	}
 	
+		
+		public Noticia obtenerPorId(int id) throws SQLException {
+			
+			String sql = "SELECT * FROM noticias WHERE idnoticias=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			rs.next();
+			
+			Noticia p = new Noticia(rs.getInt(1),rs.getString(2),rs.getString(3));
+			
+			return p;
+		}
 	
 	
 	

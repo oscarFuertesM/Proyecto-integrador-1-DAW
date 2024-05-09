@@ -39,4 +39,14 @@
     <servlet-name>GestiónNoticia</servlet-name>
     <url-pattern>/GestiónNoticia</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarNoticias</display-name>
+    <servlet-name>EditarNoticias</servlet-name>
+    <servlet-class>controlador.EditarNoticias</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarNoticias</servlet-name>
+    <url-pattern>/EditarNoticias</url-pattern>
+  </servlet-mapping>
 </web-app>

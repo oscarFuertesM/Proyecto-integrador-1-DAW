@@ -2,6 +2,8 @@ package modelo;
 
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import dao.DaoNoticia;
 
 public class Noticia {
@@ -62,6 +64,24 @@ public class Noticia {
 	public void insertar() throws SQLException {
 		DaoNoticia dao = new DaoNoticia();
 		dao.insertarnoti(this);
+	}
+	
+	public void datosBD(int idNoti) throws SQLException {
+		DaoNoticia dao = new DaoNoticia();
+		Noticia aux = dao.obtenerPorId(idNoti);
+		
+		this.setIdNoti(aux.getIdNoti());
+		this.setTitulo(aux.getTitulo());
+		this.setTexto(aux.getTexto());
+		
+	}
+	
+	public String dameJson() {
+		String json = "";
+		Gson gson = new Gson();
+		
+		json = gson.toJson(this);
+		return json;
 	}
 	
 	
