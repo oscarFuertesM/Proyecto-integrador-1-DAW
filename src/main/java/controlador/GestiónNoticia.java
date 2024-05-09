@@ -64,7 +64,7 @@ public class GestiónNoticia extends HttpServlet {
 		String texto = request.getParameter("contenido");
 		
 		Noticia n1 = new Noticia(titulo, texto);
-		System.out.println(n1.toString());
+		//System.out.println(n1.toString());
 		
 		try {
 			n1.insertar();

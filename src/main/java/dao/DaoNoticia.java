@@ -51,7 +51,7 @@ public class DaoNoticia {
 			}
 			
 			noticias.add(new Noticia(result.getInt("idnoticias"), result.getString("titulo"), result.getString("texto")));
-			System.out.println(noticias);
+			//System.out.println(noticias);
 		}
 		
 		return noticias;
