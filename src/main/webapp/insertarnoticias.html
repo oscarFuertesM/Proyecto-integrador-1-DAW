@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Insertar Noticias</title>
     <link rel="stylesheet" href="insertarnoticias.css" />
-    <script src="insertarnoticias.js"></script>
   </head>
   <body>
     
@@ -27,6 +26,7 @@
         <h2>Introducir Noticia</h2>
         <form id="nuevoform" name="noticia" action="GestiónNoticia" method="post">
             <div class="formulario">
+				<input type="hidden" id="id" name="id">
                 <label for="titulo">Título:</label>
                 <input type="text" id="titulo" name="titulo" required>
             </div>
@@ -48,6 +48,6 @@
 
 
       
-
+	<script src="insertarnoticias.js"></script>
     </body>
     </html>

@@ -62,12 +62,19 @@ public class GestiónNoticia extends HttpServlet {
 		
 		String titulo = request.getParameter("titulo");
 		String texto = request.getParameter("contenido");
+		int id = Integer.parseInt(request.getParameter("id"));
 		
-		Noticia n1 = new Noticia(titulo, texto);
+		Noticia n1 = new Noticia(id, titulo, texto);
 		//System.out.println(n1.toString());
 		
 		try {
-			n1.insertar();
+			if(id == 0) {
+				n1.insertar();
+			}else {
+				n1.setIdNoti(id);
+				n1.editar();
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

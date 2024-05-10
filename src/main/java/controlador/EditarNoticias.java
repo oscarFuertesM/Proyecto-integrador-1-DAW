@@ -32,11 +32,18 @@ public class EditarNoticias extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		PrintWriter out = response.getWriter();
-		int id = Integer.parseInt(request.getParameter("id"));
-		Noticia p = new Noticia();
 		
+		String idNotiSt = request.getParameter("id");
+		//int idNoti = Integer.parseInt(request.getParameter("idNoti"));
+		System.out.println(idNotiSt +"hola");
+		Noticia p = new Noticia();
+		System.out.println(idNotiSt +"hola2");
+		if (idNotiSt != null) {
+			
+			int idNoti = Integer.parseInt(idNotiSt);
+			System.out.println(idNoti);
 		try {
-			p.datosBD(id);
+			p.datosBD(idNoti);
 			out.print(p.dameJson());
 			System.out.println("hola");
 			System.out.println(p.dameJson());
@@ -44,7 +51,9 @@ public class EditarNoticias extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	  } else {
+		  System.out.println("Ha fallado");
+	  }
 	
 	
 	}
@@ -54,7 +63,32 @@ public class EditarNoticias extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String titulo = request.getParameter("titulo");
+		String texto = request.getParameter("contenido");
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		Noticia n1 = new Noticia(id, titulo, texto);
+		//System.out.println(n1.toString());
+		
+		try {
+			if(id == 0) {
+				n1.insertar();
+			}else {
+				n1.setIdNoti(id);
+				n1.editar();
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.sendRedirect("noticias.html");
+		
+	}
+		
+		
 	}
 
-}
+

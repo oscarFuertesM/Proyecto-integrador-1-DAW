@@ -84,6 +84,11 @@ public class Noticia {
 		return json;
 	}
 	
+	public void editar() throws SQLException {
+		DaoNoticia dao = new DaoNoticia();
+		dao.editar(this);
+	}
+	
 	
 	
 	

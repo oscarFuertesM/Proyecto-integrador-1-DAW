@@ -66,12 +66,7 @@ public class DaoNoticia {
 		
 		txtJSON = gson.toJson(this.listanoti());
 		
-		
 		return txtJSON;
-		
-		
-		
-		
 		
 	}
 	
@@ -92,6 +87,17 @@ public class DaoNoticia {
 		}
 	
 	
+		public void editar(Noticia n) throws SQLException {
+			String sql = "UPDATE noticias SET titulo=?, texto=? WHERE idnoticias=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, n.getIdNoti());
+			ps.setString(2, n.getTitulo());
+			ps.setString(3, n.getTexto());
+			
+			int filas = ps.executeUpdate();
+			ps.close();
+			
+		}
 	
 	
 }
