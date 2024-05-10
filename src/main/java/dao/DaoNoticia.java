@@ -88,12 +88,12 @@ public class DaoNoticia {
 	
 	
 		public void editar(Noticia n) throws SQLException {
-			String sql = "UPDATE noticias SET titulo=?, texto=? WHERE idnoticias=?";
+			String sql = "UPDATE noticias SET titulo = ?, texto = ? WHERE idnoticias = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, n.getIdNoti());
-			ps.setString(2, n.getTitulo());
-			ps.setString(3, n.getTexto());
 			
+			ps.setString(1, n.getTitulo());
+			ps.setString(2, n.getTexto());
+			ps.setInt(3, n.getIdNoti());
 			int filas = ps.executeUpdate();
 			ps.close();
 			

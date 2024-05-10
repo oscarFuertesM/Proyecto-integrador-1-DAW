@@ -35,18 +35,14 @@ public class EditarNoticias extends HttpServlet {
 		
 		String idNotiSt = request.getParameter("id");
 		//int idNoti = Integer.parseInt(request.getParameter("idNoti"));
-		System.out.println(idNotiSt +"hola");
 		Noticia p = new Noticia();
-		System.out.println(idNotiSt +"hola2");
 		if (idNotiSt != null) {
 			
 			int idNoti = Integer.parseInt(idNotiSt);
-			System.out.println(idNoti);
 		try {
 			p.datosBD(idNoti);
 			out.print(p.dameJson());
-			System.out.println("hola");
-			System.out.println(p.dameJson());
+			//System.out.println(p.dameJson());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
