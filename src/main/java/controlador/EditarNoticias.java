@@ -38,6 +38,7 @@ public class EditarNoticias extends HttpServlet {
 		try {
 			p.datosBD(id);
 			out.print(p.dameJson());
+			System.out.println("hola");
 			System.out.println(p.dameJson());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
