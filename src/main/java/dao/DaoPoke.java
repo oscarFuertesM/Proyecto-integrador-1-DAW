@@ -50,7 +50,7 @@ public class DaoPoke {
 		
 	}
 	
-public String listarJson() throws SQLException {
+	public String listarJson() throws SQLException {
 		
 		String txtJSON = "";
 		
@@ -61,11 +61,7 @@ public String listarJson() throws SQLException {
 		
 		
 		return txtJSON;
-		
-		
-		
-		
-		
+
 	}
 
 	

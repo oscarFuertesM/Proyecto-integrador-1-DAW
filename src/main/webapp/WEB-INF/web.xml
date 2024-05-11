@@ -59,4 +59,14 @@
     <servlet-name>BorrarNoticias</servlet-name>
     <url-pattern>/BorrarNoticias</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionMovimientos</display-name>
+    <servlet-name>GestionMovimientos</servlet-name>
+    <servlet-class>controlador.GestionMovimientos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionMovimientos</servlet-name>
+    <url-pattern>/GestionMovimientos</url-pattern>
+  </servlet-mapping>
 </web-app>

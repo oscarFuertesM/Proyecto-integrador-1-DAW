@@ -153,10 +153,26 @@ a:visited{
 }
 
 .contador{
-    color: red;
+	color: white;
     font-size: xx-large;
     margin-top: auto;
     margin-bottom: auto;
     
 }
+
+/* Estilos para números negativos */
+.negative {
+  color: red;
+}
+
+/* Estilos para números positivos */
+.positive {
+  color: lawngreen;
+}
+
+/* Estilos para números iguales a 0 */
+.zero {
+  color: white;
+}
+
 

@@ -1,5 +1,8 @@
 package modelo;
 
+import java.sql.SQLException;
+
+
 public class Pokemon {
 
 	private int pokedex;
@@ -57,7 +60,7 @@ public class Pokemon {
 	}
 	
 	
-	
+
 	
 	
 	
