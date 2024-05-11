@@ -1,7 +1,11 @@
-function pruebafetch(idNoti){
+function editarnoticia(idNoti){
+	if(idNoti){
 	fetch('EditarNoticias?id='+idNoti)
 	.then(response => response.json())
 	.then(data => devolverDatos(data))
+	}else{
+		
+	}
 }
 
 function getParameterByName(name) {
@@ -22,6 +26,13 @@ function devolverDatos(datos) {
 window.addEventListener("DOMContentLoaded", function(){
 		
 		let id = getParameterByName("id");
-		pruebafetch(id);
+		editarnoticia(id);
 		
 	})
+	
+	/*btneditar.addEventListener("click", function(){
+		
+		let id = getParameterByName("id");
+		editarnoticia(id);
+		
+	})*/

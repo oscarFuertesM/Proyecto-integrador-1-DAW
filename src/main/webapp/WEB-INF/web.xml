@@ -49,4 +49,14 @@
     <servlet-name>EditarNoticias</servlet-name>
     <url-pattern>/EditarNoticias</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BorrarNoticias</display-name>
+    <servlet-name>BorrarNoticias</servlet-name>
+    <servlet-class>controlador.BorrarNoticias</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BorrarNoticias</servlet-name>
+    <url-pattern>/BorrarNoticias</url-pattern>
+  </servlet-mapping>
 </web-app>

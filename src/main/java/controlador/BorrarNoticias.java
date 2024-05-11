@@ -8,21 +8,19 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelo.Noticia;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import dao.DaoNoticia;
-import dao.DaoPoke;
-
 /**
- * Servlet implementation class GestiónNoticia
+ * Servlet implementation class BorrarNoticias
  */
-public class GestiónNoticia extends HttpServlet {
+public class BorrarNoticias extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GestiónNoticia() {
+    public BorrarNoticias() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,24 +31,28 @@ public class GestiónNoticia extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		//PrintWriter out = response.getWriter();
 		
+		String idNotiSt = request.getParameter("id");
+		//int idNoti = Integer.parseInt(request.getParameter("idNoti"));
+		Noticia p = new Noticia();
+		if (idNotiSt != null) {
+			
+			int idNoti = Integer.parseInt(idNotiSt);
 		try {
-			
-			//PrintWriter out = response.getWriter();
-		
-			DaoNoticia dao = new DaoNoticia();
-			
-			String listaNoticia = dao.listarJson();
-			
-			
-			response.getWriter().append(listaNoticia);
-			
+			p.borrar(idNoti);
+			//out.print(p.dameJson());
+			//System.out.println(p.dameJson());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	  } else {
+		  System.out.println("Ha fallado");
+	  }
 		
 		
+
 		
 	}
 
@@ -59,31 +61,7 @@ public class GestiónNoticia extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String titulo = request.getParameter("titulo");
-		String texto = request.getParameter("contenido");
-		//int id = Integer.parseInt(request.getParameter("id"));
-		
-		//Noticia n1 = new Noticia(id, titulo, texto);
-		Noticia n1 = new Noticia(titulo, texto);
-
-		//System.out.println(n1.toString());
-		
-		try {
-			//if(id == 0) {
-				n1.insertar();
-			//}else {
-				//n1.setIdNoti(id);
-				//n1.editar();
-			//}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		response.sendRedirect("insertarnoticias.html");
-		
+		response.sendRedirect("noticias.html");
 	}
 
 }

@@ -95,8 +95,16 @@ public class DaoNoticia {
 			ps.setString(2, n.getTexto());
 			ps.setInt(3, n.getIdNoti());
 			int filas = ps.executeUpdate();
-			ps.close();
+			ps.close();	
+		}
+		
+		public void borrar (int id) throws SQLException {
+			String sql = "DELETE FROM noticias WHERE idnoticias=?";
+			PreparedStatement ps = con.prepareStatement(sql);
 			
+			ps.setInt(1, id);
+			int filas = ps.executeUpdate();
+			ps.close();
 		}
 	
 	

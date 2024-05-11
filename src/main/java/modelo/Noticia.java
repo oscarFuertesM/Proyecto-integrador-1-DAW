@@ -89,6 +89,12 @@ public class Noticia {
 		dao.editar(this);
 	}
 	
+	public void borrar(int id) throws SQLException {
+		DaoNoticia dao = new DaoNoticia();
+		dao.borrar(id);
+	}
+	
+	
 	
 	
 	
