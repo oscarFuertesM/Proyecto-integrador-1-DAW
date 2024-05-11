@@ -1,10 +1,11 @@
 function editarnoticia(idNoti){
 	if(idNoti){
+		console.log("estoy aqui");
 	fetch('EditarNoticias?id='+idNoti)
 	.then(response => response.json())
 	.then(data => devolverDatos(data))
 	}else{
-		
+		console.log("hola");
 	}
 }
 
@@ -30,7 +31,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 	})
 	
-	/*btneditar.addEventListener("click", function(){
+	/*var guardar = document.getElementById("guardar");
+	
+	guardar.addEventListener("click", function(){
 		
 		let id = getParameterByName("id");
 		editarnoticia(id);

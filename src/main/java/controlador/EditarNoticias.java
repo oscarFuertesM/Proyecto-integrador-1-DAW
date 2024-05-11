@@ -34,14 +34,17 @@ public class EditarNoticias extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String idNotiSt = request.getParameter("id");
+		//System.out.println("estoy aqui2");
 		//int idNoti = Integer.parseInt(request.getParameter("idNoti"));
 		Noticia p = new Noticia();
 		if (idNotiSt != null) {
 			
 			int idNoti = Integer.parseInt(idNotiSt);
 		try {
+			//System.out.println("estoy aqui3");
 			p.datosBD(idNoti);
 			out.print(p.dameJson());
+			//System.out.println("estoy aqui4");
 			//System.out.println(p.dameJson());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -68,12 +71,12 @@ public class EditarNoticias extends HttpServlet {
 		//System.out.println(n1.toString());
 		
 		try {
-			if(id == 0) {
-				n1.insertar();
-			}else {
-				n1.setIdNoti(id);
+			//if(id == 0) {
+				//n1.insertar();
+			//}else {
+				//n1.setIdNoti(id);
 				n1.editar();
-			}
+			//}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

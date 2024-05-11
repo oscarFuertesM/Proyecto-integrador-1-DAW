@@ -64,19 +64,24 @@ public class GestiónNoticia extends HttpServlet {
 		String texto = request.getParameter("contenido");
 		//int id = Integer.parseInt(request.getParameter("id"));
 		
-		//Noticia n1 = new Noticia(id, titulo, texto);
-		Noticia n1 = new Noticia(titulo, texto);
+		String idParametro = request.getParameter("id");
+		int id = 0; 
+
+		if (idParametro != null && !idParametro.isEmpty()) {
+		    id = Integer.parseInt(idParametro);
+		}
+		Noticia n1 = new Noticia(id, titulo, texto);
+		//Noticia n1 = new Noticia(titulo, texto);
 
 		//System.out.println(n1.toString());
 		
 		try {
-			//if(id == 0) {
+			if(id == 0) {
 				n1.insertar();
-			//}else {
-				//n1.setIdNoti(id);
-				//n1.editar();
-			//}
-			
+			}else {
+				n1.setIdNoti(id);
+				n1.editar();
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
