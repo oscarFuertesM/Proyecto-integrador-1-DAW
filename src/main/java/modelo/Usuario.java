@@ -106,4 +106,28 @@ public class Usuario {
 		dao.insertarPass(this, pass);
 	}
 	
+	
+	public boolean login(String pass) throws SQLException {
+		
+		boolean ok = false;
+		
+		DaoUsuario dao = new DaoUsuario();
+		Usuario aux = dao.loging(this, pass);
+		
+		if(aux != null) {
+			ok = true;
+			this.setId(aux.getId());
+			this.setNombre(aux.getNombre());
+			this.setMail(aux.getMail());
+			this.setPermiso(aux.getPermiso());
+			
+		}
+		
+		return ok;
+		
+	}
+	
+	
+	
+	
 }
