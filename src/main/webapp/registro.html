@@ -24,21 +24,22 @@
       
       <div class="login">
 
-        <form name="Login" action="Login" method="post">
+        <form name="registro" action="GestionUsuarios" method="post">
           
           <h1>Registro</h1>
 
           <div class="form-group">
+			<input type="hidden" name="permisos" value="1">
             <label for="usuario">Usuario:</label>
-            <input type="text" id="usuario" name="usuario">
+            <input type="text" id="usuario" name="usuario" required>
         </div>
         <div class="form-group">
             <label for="mail">Email:</label>
-            <input type="mail" id="mail" name="mail">
+            <input type="mail" id="mail" name="mail" required>
         </div>
         <div class="form-group">
             <label for="pass">Contraseña:</label>
-            <input type="password" id="pass" name="pass">
+            <input type="password" id="pass" name="pass" required>
         </div>
         <button type="submit">Enviar</button>
 
