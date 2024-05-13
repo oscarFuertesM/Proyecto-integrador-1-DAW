@@ -34,46 +34,92 @@ function generarnoticias(noticia) {
 		var div = document.createElement('div');
 		div.className = 'publicacion';
 
-		// Aquí es donde se copia el codigo HTML que queremos insertar
-		//div.innerHTML = '<h2 class="titulo">' + noticia.titulo + '</h2><p class="texto">' + noticia.texto + "</p><button id=><a href='insertarnoticias.html?id="+noticia.idNoti+"'>Editar</a></button><button><a href='javascript:borrarnoticia()'>Borrar</a></button>";         
+		div.innerHTML = '<h2 class="titulo">' + noticia.titulo + '</h2><p class="texto">' + noticia.texto + '</p><button id="botonEditar"><a href="insertarnoticias.html?id=' + noticia.idNoti + '">Editar</a></button><button id="botonBorrar"><a href="javascript:borrarnoticia(' + noticia.idNoti + ')">Borrar</a></button>';
 
-		//div.innerHTML = '<h2 class="titulo">' + noticia.titulo + '</h2><p class="texto">' + noticia.texto + '</p><button><a href="insertarnoticias.html?id='+noticia.idNoti+'">Editar</a></button><button id="btnborrar"><a href="BorrarNoticias?id='+noticia.idNoti+'">Borrar</a></button>';         
-		div.innerHTML = '<h2 class="titulo">' + noticia.titulo + '</h2><p class="texto">' + noticia.texto + '</p><button><a href="insertarnoticias.html?id='+noticia.idNoti+'">Editar</a></button><button id="btnborrar"><a href="javascript:borrarnoticia('+noticia.idNoti+')">Borrar</a></button>';         
-
-		// Metemos el Div dentro del Section
 		section.insertBefore(div, section.firstChild);
+		botones();
 	} else {
 	}
 }
 
-if(datosNoticia){
-	datosNoticia.forEach(function(noticia){
+if (datosNoticia) {
+	datosNoticia.forEach(function(noticia) {
 		generarnoticias(noticia);
 	})
-}else{
+} else {
 	console.error("No se pudo obtener la información de las noticias")
 }
 
-function borrarnoticia(idNoti){
-	if(confirm("Se eliminará la noticia de manera permanente, ¿estás seguro?")){
-	fetch('BorrarNoticias?id='+idNoti)
-	window.location.reload();
+function borrarnoticia(idNoti) {
+	if (confirm("Se eliminará la noticia de manera permanente, ¿estás seguro?")) {
+		fetch('BorrarNoticias?id=' + idNoti)
+		window.location.reload();
 	}
 }
 
 function devolverDatos(datos) {
-   document.getElementById("id").value = datos.idNoti;
-   document.getElementById("titulo").value = datos.titulo;
-   document.getElementById("contenido").value = datos.texto;
-   
+	document.getElementById("id").value = datos.idNoti;
+	document.getElementById("titulo").value = datos.titulo;
+	document.getElementById("contenido").value = datos.texto;
+
 
 }
 
 function getParameterByName(name) {
-		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		    results = regex.exec(location.search);
-		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+
+function botones() {
+
+	var permisos = obtenerPermisos();
+
+	var botonEditar = document.getElementById("botonEditar");
+	var botonBorrar = document.getElementById("botonBorrar");
+
+	if (permisos > 3) {
+		botonEditar.style.display = "block";
+		botonBorrar.style.display = "block";
+
+	} else {
+		botonEditar.style.display = "none";
+		botonBorrar.style.display = "none";
+
 	}
+};
+
+function obtenerPermisos() {
+
+	let datosSesion
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+			if (xhr.status === 200) {
+
+				datosSesion = JSON.parse(xhr.responseText);
+
+				console.log(datosSesion);
+			}
+		};
+		xhr.open('GET', 'obtenerPermisos_id', false);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send();
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 

@@ -89,4 +89,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>obtenerPermisos_id</display-name>
+    <servlet-name>obtenerPermisos_id</servlet-name>
+    <servlet-class>controlador.obtenerPermisos_id</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>obtenerPermisos_id</servlet-name>
+    <url-pattern>/obtenerPermisos_id</url-pattern>
+  </servlet-mapping>
 </web-app>
