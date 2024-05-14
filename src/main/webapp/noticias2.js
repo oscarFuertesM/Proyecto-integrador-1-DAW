@@ -72,99 +72,47 @@ function borrarnoticia(idNoti) {
 	}
 }
 
-/*function devolverDatos(datos) {
-	document.getElementById("id").value = datos.idNoti;
-	document.getElementById("titulo").value = datos.titulo;
-	document.getElementById("contenido").value = datos.texto;
+function ajustarMenuUsuario() {
+    fetch('obtenerPermisos_id', { cache: 'no-store' }) 
+    .then(response => response.json())
+    .then(data => {
+        const permisos = data.permiso;
+        const idUsuario = data.id;
 
+        const loginLink = document.getElementById('login');
+        const adminLink = document.getElementById('admin');
+        const logoutLink = document.getElementById('logout');
 
-}
-
-function getParameterByName(name) {
-	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		results = regex.exec(location.search);
-	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}*/
-
-
-
-/*function botones() {
-
-	var permisos = obtenerPermisos();
-
-	var botonEditar = document.getElementById("botonEditar");
-	var botonBorrar = document.getElementById("botonBorrar");
-
-	if (permisos > 3) {
-		botonEditar.style.display = "block";
-		botonBorrar.style.display = "block";
-
-	} else {
-		botonEditar.style.display = "none";
-		botonBorrar.style.display = "none";
-
-	}
-};
-
-function obtenerPermisos() {
-
-	let datosSesion
-	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState === 4) {
-			if (xhr.status === 200) {
-
-				datosSesion = JSON.parse(xhr.responseText);
-				console.log("hola");
-				console.log(datosSesion);
-			}
-		};
-		xhr.open('GET', 'obtenerPermisos_id', false);
-		xhr.setRequestHeader('Content-Type', 'application/json');
-		xhr.send();
-	return datosSesion;
-	}
-}
-
-window.addEventListener("DOMContentLoaded", function(){
-	//obtenerPermisos();
-	botones();
-})*/
-
-/*function botones(permisos) {
-    var botonEditar = document.getElementById("botonEditar");
-    var botonBorrar = document.getElementById("botonBorrar");
-
-    if (permisos > 3) { // Asegúrate de que el umbral de permisos es correcto
-        botonEditar.style.display = "block";
-        botonBorrar.style.display = "block";
-    } else {
-        botonEditar.style.display = "none";
-        botonBorrar.style.display = "none";
-    }
-}
-
-function obtenerPermisos() {
-    fetch('obtenerPermisos_id')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
+        if (idUsuario > 0) {
+            loginLink.style.display = 'none';
+            logoutLink.style.display = 'block';
+            adminLink.style.display = permisos >= 7 ? 'block' : 'none';
+        } else {
+            loginLink.style.display = 'block';
+            adminLink.style.display = 'none';
+            logoutLink.style.display = 'none';
         }
-        return response.json();
-    })
-    .then(datosSesion => {
-        console.log("Permisos recibidos:", datosSesion);
-        botones(datosSesion.permiso); // Llama a botones con los permisos recibidos
     })
     .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('Error al obtener el estado de la sesión:', error);
     });
 }
 
-window.addEventListener("DOMContentLoaded", function() {
-    obtenerPermisos(); // Solo llama a obtenerPermisos
-});*/
+window.addEventListener('DOMContentLoaded', ajustarMenuUsuario);
+
+
+
+document.getElementById('logout').addEventListener('click', function() {
+    localStorage.clear(); 
+    sessionStorage.clear(); 
+    fetch('/cerrarSesion')
+    .then(response => {
+        window.location.href = 'login.html'; 
+    })
+    .catch(error => console.error('Error al cerrar sesión:', error));
+});
+
+
 
 
 

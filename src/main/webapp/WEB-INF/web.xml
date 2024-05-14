@@ -99,4 +99,14 @@
     <servlet-name>obtenerPermisos_id</servlet-name>
     <url-pattern>/obtenerPermisos_id</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>cerrarSesion</display-name>
+    <servlet-name>cerrarSesion</servlet-name>
+    <servlet-class>controlador.cerrarSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cerrarSesion</servlet-name>
+    <url-pattern>/cerrarSesion</url-pattern>
+  </servlet-mapping>
 </web-app>
