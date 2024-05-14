@@ -46,11 +46,19 @@ function aplicarVisibilidadBotones() {
         const botonesEditar = document.querySelectorAll(".botonEditar");
         const botonesBorrar = document.querySelectorAll(".botonBorrar");
 
-        botonesEditar.forEach(boton => boton.style.display = permisos > 3 ? "block" : "none");
-        botonesBorrar.forEach(boton => boton.style.display = permisos > 3 ? "block" : "none");
+        botonesEditar.forEach(boton => boton.style.display = permisos >= 7 ? "block" : "none");
+        botonesBorrar.forEach(boton => boton.style.display = permisos >= 7 ? "block" : "none");
     })
-    .catch(error => console.error("Error al obtener permisos:", error));
+    .catch(error => {
+        console.error("Error al obtener permisos:", error);
+        document.querySelectorAll(".botonEditar, .botonBorrar").forEach(boton => boton.style.display = "none");
+    });
 }
+
+window.addEventListener("DOMContentLoaded", function() {
+    aplicarVisibilidadBotones();
+});
+
 
 window.addEventListener("load", aplicarVisibilidadBotones);
 
