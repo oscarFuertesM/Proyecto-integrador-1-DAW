@@ -1,310 +1,202 @@
-/*function datos(){	 
-  let resultado; 
-  let xhr = new XMLHttpRequest();
-       xhr.onload = function () {
-           if (xhr.readyState === 4){
-               if (xhr.status === 200) {
-                 try{
-            	 	resultado = JSON.parse(xhr.responseText);            
-      				//var pokemon = xhr.responseText;
-      				console.log(resultado);
-                 }catch (e) {
-					// TODO: handle exception
-					
-				}
-               }                    
-           }
-       };
-
-       xhr.open("GET", "listar", false);
-       xhr.setRequestHeader("Content-Type", "application/json");
-       xhr.send();
-       return resultado;
-}
-
-window.addEventListener("DOMContentLoaded", datos())
-
-function datosMov(){	 
-  let resultado; 
-  let xhr = new XMLHttpRequest();
-       xhr.onload = function () {
-           if (xhr.readyState === 4){
-               if (xhr.status === 200) {
-                 try{
-            	 	resultado = JSON.parse(xhr.responseText);            
-      				//var pokemon = xhr.responseText;
-      				console.log(resultado);
-                 }catch (e) {
-					// TODO: handle exception
-					
-				}
-               }                    
-           }
-       };
-
-       xhr.open("GET", "GestionMovimientos", false);
-       xhr.setRequestHeader("Content-Type", "application/json");
-       xhr.send();
-       return resultado;
-}
-
-window.addEventListener("DOMContentLoaded", datosMov())
-
-// Insertar los 6 huecos del equipo
-function agregarPokemons() {
-  
-  var section = document.getElementById('equipo');
-  if (section){
-  
-  var div = document.createElement('div');
-  div.className = 'poke';
-
-  // Aquí es donde se copia el codigo HTML que queremos insertar
-  div.innerHTML = `
-    <div class="pokediv">
-      <select class="pokemon" name="Pokemon">
-        <option value="Charmander">Charmander</option>
-      </select>
-    </div>
-    <div class="movsdiv">
-      <select class="movs" name="movs">
-        <option value="Lanzallamas">Lanzallamas</option>
-      </select>
-
-      <select class="movs" name="movs">
-        <option value="Lanzallamas">Lanzallamas</option>
-      </select>
-
-      <select class="movs" name="movs">
-        <option value="Lanzallamas">Lanzallamas</option>
-      </select>
-
-      <select class="movs" name="movs">
-        <option value="Lanzallamas">Lanzallamas</option>
-      </select>
-    </div>
-  `;
-
-  // Metemos el Div dentro del Section
-  section.appendChild(div);
-} else{
-  console.error("FAIL")
-}
-}
-
-// Y con esta función lo repetimos 6 veces, una por cada Pokemon del equipo
-function generarEquipo() {
-  for (var i = 0; i < 6; i++) {
-    agregarPokemons();
-  }
-}
-
-// Llamar a la función para repetir la generación 6 veces
-window.addEventListener("DOMContentLoaded", generarEquipo());*/
-
-
 const debilidadesPokemon = {
-  "Normal": ["Lucha"],
-  "Fuego": ["Agua", "Tierra", "Roca"],
-  "Agua": ["Planta", "Eléctrico"],
-  "Planta": ["Fuego", "Hielo", "Veneno", "Volador", "Bicho"],
-  "Eléctrico": ["Tierra"],
-  "Hielo": ["Fuego", "Lucha", "Roca"],
-  "Lucha": ["Volador", "Psíquico"],
-  "Tierra": ["Agua", "Planta", "Hielo"],
-  "Volador": ["Eléctrico", "Hielo", "Roca"],
-  "Veneno": ["Tierra", "Psíquico"],
-  "Psíquico": ["Bicho", "Fantasma", "Siniestro"],
-  "Bicho": ["Fuego", "Volador", "Roca"],
-  "Roca": ["Agua", "Planta", "Lucha", "Tierra"],
-  "Fantasma": ["Fantasma", "Siniestro"],
-  "Dragón": ["Hielo", "Dragón"],
-  "Siniestro": ["Lucha", "Bicho"],
+	"Normal": ["Lucha"],
+	"Fuego": ["Agua", "Tierra", "Roca"],
+	"Agua": ["Planta", "Eléctrico"],
+	"Planta": ["Fuego", "Hielo", "Veneno", "Volador", "Bicho"],
+	"Eléctrico": ["Tierra"],
+	"Hielo": ["Fuego", "Lucha", "Roca"],
+	"Lucha": ["Volador", "Psíquico"],
+	"Tierra": ["Agua", "Planta", "Hielo"],
+	"Volador": ["Eléctrico", "Hielo", "Roca"],
+	"Veneno": ["Tierra", "Psíquico"],
+	"Psíquico": ["Bicho", "Fantasma", "Siniestro"],
+	"Bicho": ["Fuego", "Volador", "Roca"],
+	"Roca": ["Agua", "Planta", "Lucha", "Tierra"],
+	"Fantasma": ["Fantasma", "Siniestro"],
+	"Dragón": ["Hielo", "Dragón"],
+	"Siniestro": ["Lucha", "Bicho"],
 };
 
-let pokemon;
-let movimientos;
-let contadores = {};
+const efectividadMovimientos = {
+	"Normal": [],
+	"Fuego": ["Bicho", "Planta", "Hielo"],
+	"Agua": ["Tierra", "Roca", "Fuego"],
+	"Eléctrico": ["Agua", "Volador"],
+	"Hierba": ["Tierra", "Roca", "Agua"],
+	"Hielo": ["Planta", "Tierra", "Volador", "Dragón"],
+	"Lucha": ["Normal", "Roca", "Hielo", "Siniestro"],
+	"Veneno": ["Hierba",],
+	"Tierra": ["Fuego", "Eléctrico", "Veneno", "Roca",],
+	"Volador": ["Planta", "Lucha", "Bicho"],
+	"Psíquico": ["Lucha", "Veneno"],
+	"Bicho": ["Planta", "Psíquico", "Siniestro"],
+	"Roca": ["Fuego", "Hielo", "Volador", "Bicho"],
+	"Fantasma": ["Fantasma", "Psíquico"],
+	"Dragón": ["Dragón"],
+	"Siniestro": ["Fantasma", "Psíquico"],
+};
+
+
+var pokemonData;
+var movimientosData;
 
 function obtenerPokemon() {
-  let xhr = new XMLHttpRequest();
-  xhr.onload = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      pokemon = JSON.parse(xhr.responseText);
-      generarEquipo();
-    }
-  };
-  xhr.open("GET", "listar", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send();
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			pokemonData = JSON.parse(xhr.responseText);
+			const pokemonSelects = document.querySelectorAll(".pokemon");
+			pokemonSelects.forEach(select => {
+				pokemonData.forEach(pokemon => {
+					const option = document.createElement("option");
+					option.value = pokemon.nombre;
+					option.text = pokemon.nombre;
+					select.appendChild(option);
+				});
+
+				select.addEventListener("change", function() {
+					updateMoves(this);
+				});
+			});
+			obtenerMovimientos();
+		}
+	};
+	xhr.open("GET", "listar", true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send();
 }
 
 function obtenerMovimientos() {
-  let xhr = new XMLHttpRequest();
-  xhr.onload = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      movimientos = JSON.parse(xhr.responseText);
-      obtenerPokemon();
-    }
-  };
-  xhr.open("GET", "GestionMovimientos", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send();
+	let xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			movimientosData = JSON.parse(xhr.responseText);
+		}
+	};
+	xhr.open("GET", "GestionMovimientos", true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send();
 }
 
-function generarEquipo() {
-  var section = document.getElementById('equipo');
-  if (section && pokemon) {
-    for (var i = 0; i < 6; i++) {
-      agregarPokemon(section);
-    }
-  } else {
-    console.error("Error al obtener los datos de los Pokémon.");
-  }
+function updateMoves(select) {
+	const selectedPokemon = select.value;
+	const pokemon = pokemonData.find(pokemon => pokemon.nombre === selectedPokemon);
+	const equipoDiv = select.closest('.poke');
+
+	if (!pokemon) {
+		const movesSelects = equipoDiv.querySelectorAll(".movs");
+		movesSelects.forEach(movesSelect => {
+			movesSelect.innerHTML = "";
+			const defaultOption = document.createElement("option");
+			defaultOption.value = "";
+			defaultOption.text = "";
+			movesSelect.appendChild(defaultOption);
+		});
+		return;
+	}
+
+	const movesOfType = movimientosData.filter(move => move.tipo === pokemon.tipo1 || move.tipo === pokemon.tipo2);
+
+	const movesSelects = equipoDiv.querySelectorAll(".movs");
+	movesSelects.forEach(movesSelect => {
+		movesSelect.innerHTML = "";
+		const defaultOption = document.createElement("option");
+		defaultOption.value = "";
+		defaultOption.text = "";
+		movesSelect.appendChild(defaultOption);
+		movesOfType.forEach(move => {
+			const moveOption = document.createElement("option");
+			moveOption.value = move.nombre;
+			moveOption.text = move.nombre;
+			movesSelect.appendChild(moveOption);
+		});
+	});
 }
 
-function agregarPokemon(section) {
-  var div = document.createElement('div');
-  div.className = 'poke';
 
-  var pokemonSelect = document.createElement('select');
-  pokemonSelect.className = 'pokemon';
-  pokemonSelect.name = 'Pokemon';
-  
-  
-  for (var j = 0; j < pokemon.length; j++) {
-    var option = document.createElement('option');
-    option.value = pokemon[j].nombre;
-    option.textContent = pokemon[j].nombre;
-    pokemonSelect.appendChild(option);
-  }
-
-  var movimientosDiv = document.createElement('div');
-  movimientosDiv.className = 'movsdiv';
-
-  pokemonSelect.addEventListener('change', function () {
-    var tipoPokemon = obtenerTipoPokemon(this.value);
-    actualizarMovimientos(movimientosDiv, tipoPokemon);
-    actualizarContadores(tipoPokemon, true);
-  });
-
-  div.appendChild(pokemonSelect);
-  div.appendChild(movimientosDiv);
-  section.appendChild(div);
+function cargarDatos() {
+	obtenerPokemon();
 }
 
-function actualizarMovimientos(movimientosDiv, tiposPokemon) {
-  movimientosDiv.innerHTML = '';
 
-  var movimientosFiltrados = [];
-  for (var k = 0; k < movimientos.length; k++) {
-    for (var tipoIndex = 0; tipoIndex < tiposPokemon.length; tipoIndex++) {
-      if (movimientos[k].tipo === tiposPokemon[tipoIndex]) {
-        movimientosFiltrados.push(movimientos[k]);
-        break;
-      }
-    }
-  }
-
-  for (var i = 0; i < 4; i++) {
-    var movSelect = document.createElement('select');
-    movSelect.className = 'movs';
-    movSelect.name = 'movs';
-
-    for (var j = 0; j < movimientosFiltrados.length; j++) {
-      var option = document.createElement('option');
-      option.value = movimientosFiltrados[j].nombre;
-      option.textContent = movimientosFiltrados[j].nombre;
-      movSelect.appendChild(option);
-    }
-
-    movSelect.addEventListener('change', function () {
-      var tipoMovimiento = obtenerTipoMovimiento(this.value);
-      actualizarContadores(tipoMovimiento, false);
-    });
-
-    movimientosDiv.appendChild(movSelect);
-  }
-}
-
-function obtenerTipoPokemon(nombrePokemon) {
-  var tipos = [];
-  for (var l = 0; l < pokemon.length; l++) {
-    if (pokemon[l].nombre === nombrePokemon) {
-      tipos.push(pokemon[l].tipo1);
-      if (pokemon[l].tipo2 && pokemon[l].tipo2 !== '') {
-        tipos.push(pokemon[l].tipo2);
-      }
-      return tipos;
-    }
-  }
-}
-
-function obtenerTipoMovimiento(nombreMovimiento) {
-  for (var k = 0; k < movimientos.length; k++) {
-    if (movimientos[k].nombre === nombreMovimiento) {
-      return movimientos[k].tipo;
-    }
-  }
-}
-
-function actualizarContadores() {
-  contadores = {}; // Reiniciamos los contadores
-
-  // Recorremos todos los selectores de Pokémon
-  document.querySelectorAll('.pokemon').forEach(function (pokemonSelect) {
-    var tipoPokemon = obtenerTipoPokemon(pokemonSelect.value);
-
-    // Restamos las debilidades de este Pokémon
-    tipoPokemon.forEach(function (tipo) {
-      debilidadesPokemon[tipo].forEach(function (debilidad) {
-        contadores[debilidad] = (contadores[debilidad] || 0) - 1;
-      });
-    });
-  });
-
-  // Recorremos todos los selectores de movimientos
-  document.querySelectorAll('.movs').forEach(function (movSelect) {
-    var tipoMovimiento = obtenerTipoMovimiento(movSelect.value);
-
-    // Si el movimiento tiene un tipo, sumamos las fortalezas
-    if (tipoMovimiento) {
-      for (var tipo in debilidadesPokemon) {
-        if (debilidadesPokemon.hasOwnProperty(tipo)) {
-          if (debilidadesPokemon[tipo].includes(tipoMovimiento)) {
-            contadores[tipo] = (contadores[tipo] || 0) + 1;
-          }
+function actualizarContadoresDeTipo(tipo, cambio) {
+    const contadores = document.querySelectorAll('.tipos .contador');
+    contadores.forEach(contador => {
+        const tipoElemento = contador.previousElementSibling.alt.replace('Tipo ', '');
+        if (tipo === tipoElemento) {
+            let valorActual = parseInt(contador.textContent);
+            contador.textContent = valorActual + cambio;
         }
-      }
-    }
-  });
-
-  // Actualizamos los contadores en la interfaz
-  for (var tipo in contadores) {
-    if (contadores.hasOwnProperty(tipo)) {
-      var contador = document.querySelector(`.tiposimg[src="image/tipos/${tipo.toLowerCase()}.png"] + .contador`);
-      if (contador) {
-        contador.textContent = contadores[tipo];
-        
-        // Determinamos el color del contador
-        var colorClass = '';
-        if (contadores[tipo] < 0) {
-          colorClass = 'negative';
-        } else if (contadores[tipo] > 0) {
-          colorClass = 'positive';
-        } else {
-          colorClass = 'zero';
-        }
-        
-        // Aplicamos la clase de color al contador
-        contador.className = 'contador ' + colorClass;
-      }
-    }
-  }
+    });
 }
 
 
 
+function actualizarDebilidades(pokemon, cambio) {
+    if (!pokemon) return;
+    const tiposDebilidades = debilidadesPokemon[pokemon.tipo1] || [];
+    tiposDebilidades.forEach(tipo => actualizarContadoresDeTipo(tipo, cambio));
+}
+
+function actualizarFortalezas(movimiento, cambio) {
+    if (!movimiento) return;
+    const tiposFuertes = efectividadMovimientos[movimiento.tipo] || [];
+    tiposFuertes.forEach(tipo => actualizarContadoresDeTipo(tipo, cambio));
+}
+
+function manejarCambioPokemon(event) {
+    const select = event.target;
+    const pokemonAnterior = select.dataset.previous || "";
+    const pokemonNuevo = select.value;
+
+   
+    if (pokemonAnterior) {
+        const pokemon = pokemonData.find(p => p.nombre === pokemonAnterior);
+        actualizarDebilidades(pokemon, 1); 
+    }
+
+  
+    const pokemonSeleccionado = pokemonData.find(p => p.nombre === pokemonNuevo);
+    actualizarDebilidades(pokemonSeleccionado, -1);
+    select.dataset.previous = pokemonNuevo; 
+}
+
+function manejarCambioMovimiento(event) {
+    const select = event.target;
+    const movimientoAnterior = select.dataset.previous || "";
+    const movimientoNuevo = select.value;
+
+    
+    if (movimientoAnterior) {
+        const movimiento = movimientosData.find(m => m.nombre === movimientoAnterior);
+        actualizarFortalezas(movimiento, -1);
+    }
+
+    
+    const movimientoSeleccionado = movimientosData.find(m => m.nombre === movimientoNuevo);
+    actualizarFortalezas(movimientoSeleccionado, 1);
+    select.dataset.previous = movimientoNuevo; 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarDatos();
+    document.querySelectorAll('.pokemon').forEach(select => {
+        select.addEventListener('change', manejarCambioPokemon);
+    });
+    document.querySelectorAll('.movs').forEach(select => {
+        select.addEventListener('change', manejarCambioMovimiento);
+    });
+});
 
 
-window.addEventListener("DOMContentLoaded", obtenerMovimientos);
+
+
+
+
+
+
+
+
+
+
+

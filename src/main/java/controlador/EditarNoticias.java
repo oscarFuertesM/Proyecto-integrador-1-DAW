@@ -88,6 +88,6 @@ public class EditarNoticias extends HttpServlet {
 	}
 		
 		
-	}
+}
 
 

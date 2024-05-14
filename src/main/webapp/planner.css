@@ -164,19 +164,25 @@ a:visited{
     
 }
 
-/* Estilos para números negativos */
-.negative {
-  color: red;
+.contador-negativo {
+    color: red;
+    font-size: xx-large;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-/* Estilos para números positivos */
-.positive {
-  color: lawngreen;
+.contador-cero {
+    color: white;
+    font-size: xx-large;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-/* Estilos para números iguales a 0 */
-.zero {
-  color: white;
+.contador-positivo {
+    color: #90ee90;
+    font-size: xx-large;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 

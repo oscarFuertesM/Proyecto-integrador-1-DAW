@@ -31,11 +31,3 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 	})
 	
-	/*var guardar = document.getElementById("guardar");
-	
-	guardar.addEventListener("click", function(){
-		
-		let id = getParameterByName("id");
-		editarnoticia(id);
-		
-	})*/
