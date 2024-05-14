@@ -59,7 +59,7 @@ public class Login extends HttpServlet {
 				sesion.setAttribute("id", f.getId());
 				sesion.setAttribute("permiso", f.getPermiso());
 				
-				response.sendRedirect("planner.html");
+				response.sendRedirect("noticias.html");
 			}else {
 				
 				response.sendRedirect("login.html");
