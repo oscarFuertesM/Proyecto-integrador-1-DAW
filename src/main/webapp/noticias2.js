@@ -1,55 +1,61 @@
 function noticias() {
-	let resultado;
-	let xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		if (xhr.readyState === 4) {
-			if (xhr.status === 200) {
-				try {
-					resultado = JSON.parse(xhr.responseText);
-					console.log(resultado);
-				} catch (e) {
-					// TODO: handle exception
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                let datosNoticia = JSON.parse(xhr.responseText);
+                console.log(datosNoticia);
+                datosNoticia.forEach(noticia => generarnoticias(noticia));
+            } catch (e) {
+                console.error("Error al parsear noticias:", e);
+            }
+        }
+    };
 
-				}
-			}
-		}
-	};
-
-	xhr.open("GET", "GestiónNoticia", false);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.send();
-
-	return resultado;
+    xhr.open("GET", "GestiónNoticia", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send();
 }
 
-window.addEventListener("DOMContentLoaded", noticias())
+
 
 var datosNoticia = noticias();
 
 function generarnoticias(noticia) {
+    var section = document.getElementById('notisid');
+    if (section) {
+        var div = document.createElement('div');
+        div.className = 'publicacion';
 
-	var section = document.getElementById('notisid');
-	if (section) {
+        div.innerHTML = `<h2 class="titulo">${noticia.titulo}</h2>
+                         <p class="texto">${noticia.texto}</p>
+                         <button class="botonEditar"><a href="insertarnoticias.html?id=${noticia.idNoti}">Editar</a></button>
+                         <button class="botonBorrar"><a href="javascript:borrarnoticia(${noticia.idNoti})">Borrar</a></button>`;
 
-		var div = document.createElement('div');
-		div.className = 'publicacion';
-
-		div.innerHTML = '<h2 class="titulo">' + noticia.titulo + '</h2><p class="texto">' + noticia.texto + '</p><button class="botonEditar"><a href="insertarnoticias.html?id=' + noticia.idNoti + '">Editar</a></button><button class="botonBorrar"><a href="javascript:borrarnoticia(' + noticia.idNoti + ')">Borrar</a></button>';
-
-		section.insertBefore(div, section.firstChild);
-		botones();
-	} else {
-	}
+        section.insertBefore(div, section.firstChild);
+    }
 }
 
-if (datosNoticia) {
-	datosNoticia.forEach(function(noticia) {
-		generarnoticias(noticia);
-		
-	})
-} else {
-	console.error("No se pudo obtener la información de las noticias")
+window.addEventListener("DOMContentLoaded", noticias())
+
+function aplicarVisibilidadBotones() {
+    fetch('obtenerPermisos_id')
+    .then(response => response.json())
+    .then(data => {
+        const permisos = data.permiso;
+        const botonesEditar = document.querySelectorAll(".botonEditar");
+        const botonesBorrar = document.querySelectorAll(".botonBorrar");
+
+        botonesEditar.forEach(boton => boton.style.display = permisos > 3 ? "block" : "none");
+        botonesBorrar.forEach(boton => boton.style.display = permisos > 3 ? "block" : "none");
+    })
+    .catch(error => console.error("Error al obtener permisos:", error));
 }
+
+window.addEventListener("load", aplicarVisibilidadBotones);
+
+
+
 
 function borrarnoticia(idNoti) {
 	if (confirm("Se eliminará la noticia de manera permanente, ¿estás seguro?")) {
@@ -118,7 +124,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	botones();
 })*/
 
-function botones(permisos) {
+/*function botones(permisos) {
     var botonEditar = document.getElementById("botonEditar");
     var botonBorrar = document.getElementById("botonBorrar");
 
@@ -150,7 +156,7 @@ function obtenerPermisos() {
 
 window.addEventListener("DOMContentLoaded", function() {
     obtenerPermisos(); // Solo llama a obtenerPermisos
-});
+});*/
 
 
 
