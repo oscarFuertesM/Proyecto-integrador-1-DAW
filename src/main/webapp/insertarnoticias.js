@@ -62,11 +62,15 @@ window.addEventListener('DOMContentLoaded', ajustarMenuUsuario);
 
 
 document.getElementById('logout').addEventListener('click', function() {
-    localStorage.clear(); 
-    sessionStorage.clear(); 
-    fetch('/cerrarSesion')
-    .then(response => {
-        window.location.href = 'login.html'; 
-    })
-    .catch(error => console.error('Error al cerrar sesión:', error));
+    if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
+        localStorage.clear();
+        sessionStorage.clear();
+        fetch('cerrarSesion')
+        .then(response => {
+            window.location.href = 'login.html'; 
+        })
+        .catch(error => console.error('Error al cerrar sesión:', error));
+    } else {
+        console.log('Cierre de sesión cancelado.');
+    }
 });

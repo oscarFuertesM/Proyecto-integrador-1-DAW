@@ -34,12 +34,14 @@ public class cerrarSesion extends HttpServlet {
 		response.setHeader("Expires", "0");  
 
 		
-		HttpSession sesion = request.getSession(false);
+		//HttpSession sesion = request.getSession(false);
+		HttpSession sesion = request.getSession();
+
 		if(sesion != null) {
 			sesion.invalidate();
 		}
 		
-		response.sendRedirect("login.html");
+		//response.sendRedirect("login.html");
 	}
 
 	/**
