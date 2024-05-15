@@ -233,6 +233,25 @@ document.getElementById('logout').addEventListener('click', function() {
     }
 });
 
+function verificarSesionParaBoton() {
+    fetch('obtenerPermisos_id', { cache: 'no-store' }) 
+    .then(response => response.json())
+    .then(data => {
+        const idUsuario = data.id;
+        const botonGuardar = document.getElementById('guardarEquipo');
+
+        if (idUsuario > 0 && botonGuardar) {
+            botonGuardar.style.display = 'block';
+        } else if (botonGuardar) {
+            botonGuardar.style.display = 'none';
+        }
+    })
+    .catch(error => {
+        console.error('Error al verificar la sesión:', error);
+    });
+}
+
+window.addEventListener('DOMContentLoaded', verificarSesionParaBoton);
 
 
 
