@@ -119,4 +119,14 @@
     <servlet-name>GestionEquipos</servlet-name>
     <url-pattern>/GestionEquipos</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListarEquipos</display-name>
+    <servlet-name>ListarEquipos</servlet-name>
+    <servlet-class>controlador.ListarEquipos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarEquipos</servlet-name>
+    <url-pattern>/ListarEquipos</url-pattern>
+  </servlet-mapping>
 </web-app>

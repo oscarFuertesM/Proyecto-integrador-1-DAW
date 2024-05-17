@@ -51,7 +51,10 @@ public class Equipo {
 		dao.relacionUsuarioEquipo(idUsuario, idEquipo);
 	}
 	
-	
+	public void listarEquiposUsuario(int idUsuario) throws SQLException {
+		DaoEquipo dao = new DaoEquipo();
+		dao.listarEquiposUsuario(idUsuario);
+	}
 	
 	
 	

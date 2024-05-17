@@ -26,19 +26,20 @@ import modelo.Sesion;  // Asegúrate de que la clase Sesion está correctamente 
 
 public class obtenerPermisos_id extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    HttpSession sesion;
 
     public obtenerPermisos_id() {
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false); 
         int id = 0; 
         int permiso = 0; 
+        HttpSession sesion = request.getSession(false); 
 
-        if (session != null && session.getAttribute("id") != null) {
-            id = (int) session.getAttribute("id"); 
-            permiso = session.getAttribute("permiso") != null ? (int) session.getAttribute("permiso") : 0;
+        if (sesion != null && sesion.getAttribute("id") != null) {
+            id = (int) sesion.getAttribute("id"); 
+            permiso = sesion.getAttribute("permiso") != null ? (int) sesion.getAttribute("permiso") : 0;
         }
 
         Sesion datosSesion = new Sesion(id, permiso);
