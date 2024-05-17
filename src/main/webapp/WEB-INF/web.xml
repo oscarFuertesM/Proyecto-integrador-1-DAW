@@ -109,4 +109,14 @@
     <servlet-name>cerrarSesion</servlet-name>
     <url-pattern>/cerrarSesion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionEquipos</display-name>
+    <servlet-name>GestionEquipos</servlet-name>
+    <servlet-class>controlador.GestionEquipos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionEquipos</servlet-name>
+    <url-pattern>/GestionEquipos</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -2,8 +2,8 @@ package modelo;
 
 public class Sesion {
 
-	int id;
-	int permiso;
+	private int id;
+	private int permiso;
 	
 	public Sesion () {
 		

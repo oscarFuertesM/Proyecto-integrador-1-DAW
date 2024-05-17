@@ -233,7 +233,7 @@ document.getElementById('logout').addEventListener('click', function() {
     }
 });
 
-function verificarSesionParaBoton() {
+function botonGuardar() {
     fetch('obtenerPermisos_id', { cache: 'no-store' }) 
     .then(response => response.json())
     .then(data => {
@@ -251,7 +251,43 @@ function verificarSesionParaBoton() {
     });
 }
 
-window.addEventListener('DOMContentLoaded', verificarSesionParaBoton);
+window.addEventListener('DOMContentLoaded', botonGuardar);
+
+
+document.getElementById('guardarEquipo').addEventListener('click', function() {
+    const equipoPokemon = document.querySelectorAll('.poke');
+    const equipo = Array.from(equipoPokemon).map(pokeDiv => {
+        const nombrePokemonElement = pokeDiv.querySelector('.pokemon');
+        const movimientosElements = pokeDiv.querySelectorAll('.movs');
+
+        const nombrePokemon = nombrePokemonElement ? nombrePokemonElement.options[nombrePokemonElement.selectedIndex].value : '';
+        const movimientos = Array.from(movimientosElements).map(mov => mov.options[mov.selectedIndex].value);
+
+        return {
+            nombre: nombrePokemon,
+            movimientos: movimientos
+        };
+    });
+
+    const datosEquipo = JSON.stringify({ equipo });
+    console.log(datosEquipo); // Verificar el objeto JSON antes de enviarlo
+
+    fetch('GestionEquipos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ datosEquipo }) // Asegúrate de que el formato JSON coincide con el esperado en el servidor
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Equipo guardado con éxito!');
+    })
+    .catch(error => {
+        console.error('Error al guardar el equipo:', error);
+    });
+});
+
 
 
 
