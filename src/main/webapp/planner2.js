@@ -270,14 +270,14 @@ document.getElementById('guardarEquipo').addEventListener('click', function() {
     });
 
     const datosEquipo = JSON.stringify({ equipo });
-    console.log(datosEquipo); // Verificar el objeto JSON antes de enviarlo
+    console.log(datosEquipo); 
 
     fetch('GestionEquipos', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ datosEquipo }) // Asegúrate de que el formato JSON coincide con el esperado en el servidor
+        body: JSON.stringify({ datosEquipo }) 
     })
     .then(response => response.json())
     .then(data => {

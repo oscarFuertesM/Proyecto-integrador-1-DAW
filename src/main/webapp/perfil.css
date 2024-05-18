@@ -1,15 +1,14 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
+  }
+  
+  body {
     background-color: #191919;
-}
-
-
-.head{
+  }
+  
+  .head {
     background-color: rgb(101, 98, 104);
     border-radius: 50px;
     width: 80%;
@@ -18,122 +17,103 @@ body{
     margin-top: 20px;
     align-items: center;
     justify-content: center;
-}
-
-.header{
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 5px 5px #2a75bb; 
+  }
+  
+  .header {
     align-items: center;
     justify-content: center;
     list-style: none;
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-}
-
-.txt{
+  }
+  
+  .txt {
     font-size: x-large;
-    background-color:#acacac ;
+    background-color: rgb(201, 200, 200);
     border-radius: 10px;
-}
-
-a{
+    padding: 0.5%;
+    transition: transform 0.1s;
+  }
+  
+  .txt:hover {
+    background-color: #FFCC03;
+    transform: translateY(-2px);
+    box-shadow: 0 7px #333333; 
+  }
+  
+  .txt:active {
+    background-color: #FFCC03; 
+    box-shadow: 0 2px #333333; 
+    transform: translateY(2px);
+  }
+  
+  #admin {
+    font-size: x-large;
+    background-color: #acacac;
+    border-radius: 10px;
+    display: none;
+  }
+  
+  #logout {
+    display: none;
+  }
+  
+  a {
     text-decoration: none;
     color: inherit;
-}
-
-a:visited{
+  }
+  
+  a:visited {
     text-decoration: none;
     color: inherit;
-}
-
-#logo{
+  }
+  
+  #logo {
     height: 100px;
     width: 150px;
-}
-
-#pokeball{
+    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+  }
+  
+  #pokeball {
     height: 100px;
     width: 100px;
-}
+  }
 
 .equipos{
     display: flex;
-    flex-wrap: wrap;
-    margin-left: 10%;
+    
+    
+    width: 90%;
     margin-top: 2%;
-}
-
-.planificador{
-    
-    width: 40%;
-    height: 400px;
-    margin-right: 10%;
-    display: flex;
-    margin-bottom: 2%;
-    
-}
-
-.team{
-    background-color: rgb(101, 98, 104);
-    
-    height: 400px;
-    margin-right: 2%;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-   
-}
-
-.poke{
-    background-color: rgb(216, 158, 158);
-    width: 40%;
-    border-radius: 10px;
-    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
-    
-    border: 5px solid black;
-    
 }
 
-.pokediv{
-    display: flex;
-    justify-content: center;
-}
-
-.movsdiv{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    
-}
-
-.equipos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
 
 .equipo-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+    
+    
 }
 
 .equipo {
-    background-color: #888;
+    background-color: rgb(101, 98, 104);
     border: 2px solid #555;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 15px;
     margin: 10px;
-    width: 200px; /* Ajusta el ancho según sea necesario */
+    width: 40%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid #2a75bb;
 }
 
 .equipo p {
@@ -145,3 +125,31 @@ a:visited{
     margin: 5px 0;
     text-align: center;
 }
+
+.poke {
+    background-color: rgb(201, 200, 200);
+    width: 40%;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  
+    border: 5px solid black;
+  }
+  
+  .pokediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movsdiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5%;
+  }
