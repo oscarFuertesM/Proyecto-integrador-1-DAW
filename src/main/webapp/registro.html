@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicia Sesión</title>
     <link rel="stylesheet" href="registro.css" />
-    <script src="registro.js"></script>
+    
   </head>
   <body>
     <div class="head">
       <ul class="header">
-        <li>  <a href="planner.html"><img id="logo" src="image/logo.png" alt="Logo Poke Planner"/></a></li>
+        <li>
+          <a href="planner.html"><img id="logo" src="image/logo.png" alt="Logo Poke Planner" /></a>
+        </li>
         <li class="txt"><a href="planner.html">Planificador</a></li>
         <li class="txt"><a href="noticias.html">Noticias</a></li>
         <li class="txt"><a href="perfil.html">Perfil</a></li>
-        <li class="txt"><a href="login.html">Iniciar sesión</a></li>
+        <li class="txt" id="login"><a href="login.html">Iniciar sesión</a></li>
+        <li class="txt" id="admin"><a href="insertarnoticias.html">Insertar noticia</a></li>
+		<li class="txt" id="logout"><a href="#">Cerrar Sesión</a></li>
+
         <li><img id="pokeball" src="image/pokeball.png" alt="Pokeball" /></li>
       </ul>
     </div>
@@ -24,21 +29,22 @@
       
       <div class="login">
 
-        <form name="Login" action="Login" method="post">
+        <form name="registro" action="GestionUsuarios" method="post">
           
           <h1>Registro</h1>
 
           <div class="form-group">
+			<input type="hidden" name="permisos" value="1">
             <label for="usuario">Usuario:</label>
-            <input type="text" id="usuario" name="usuario">
+            <input type="text" id="usuario" name="usuario" required>
         </div>
         <div class="form-group">
             <label for="mail">Email:</label>
-            <input type="mail" id="mail" name="mail">
+            <input type="mail" id="mail" name="mail" required>
         </div>
         <div class="form-group">
             <label for="pass">Contraseña:</label>
-            <input type="password" id="pass" name="pass">
+            <input type="password" id="pass" name="pass" required>
         </div>
         <button type="submit">Enviar</button>
 
@@ -52,6 +58,6 @@
     
 
   
-  
+  <script src="registro.js"></script>
   </body>
 </html>

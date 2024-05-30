@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import modelo.Noticia;
 
 import java.io.IOException;
@@ -62,16 +63,32 @@ public class GestiónNoticia extends HttpServlet {
 		
 		String titulo = request.getParameter("titulo");
 		String texto = request.getParameter("contenido");
+		//int id = Integer.parseInt(request.getParameter("id"));
 		
-		Noticia n1 = new Noticia(titulo, texto);
-		System.out.println(n1.toString());
+		String idParametro = request.getParameter("id");
+		int id = 0; 
+
+		if (idParametro != null && !idParametro.isEmpty()) {
+		    id = Integer.parseInt(idParametro);
+		}
+		Noticia n1 = new Noticia(id, titulo, texto);
+		//Noticia n1 = new Noticia(titulo, texto);
+
+		//System.out.println(n1.toString());
 		
 		try {
-			n1.insertar();
+			if(id == 0) {
+				n1.insertar();
+			}else {
+				n1.setIdNoti(id);
+				n1.editar();
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		response.sendRedirect("insertarnoticias.html");
 		
 	}
 

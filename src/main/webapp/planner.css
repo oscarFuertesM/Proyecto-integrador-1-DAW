@@ -1,162 +1,238 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background-color: #191919;
+body {
+  background-color: #191919;
+}
+
+.head {
+  background-color: rgb(101, 98, 104);
+  border-radius: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid rgb(0, 0, 0);
+  box-shadow: 1px 1px 5px 5px #2a75bb; 
+}
+
+.header {
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.txt {
+  font-size: x-large;
+  background-color: rgb(201, 200, 200);
+  border-radius: 10px;
+  padding: 0.5%;
+  transition: transform 0.1s;
+}
+
+.txt:hover {
+  background-color: #FFCC03;
+  transform: translateY(-2px);
+  box-shadow: 0 7px #333333; 
+}
+
+.txt:active {
+  background-color: #FFCC03; 
+  box-shadow: 0 2px #333333; 
+  transform: translateY(2px);
+}
+
+#admin {
+  font-size: x-large;
+  background-color: #acacac;
+  border-radius: 10px;
+  display: none;
+}
+
+#logout {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+#logo {
+  height: 100px;
+  width: 150px;
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+}
+
+#pokeball {
+  height: 100px;
+  width: 100px;
+}
+
+.planificador {
+  margin-top: 50px;
+  width: 80%;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+ 
+}
+
+.team {
+  background-color: rgb(101, 98, 104);
+  width: 50%;
+  height: 700px;
+  margin-right: 0.5%;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-right: 0.5%;
+  box-shadow: 1px 1px 5px 5px #FFCC03;
+  border: 5px solid rgb(0, 0, 0);
+
 }
 
 
-.head{
-    background-color: rgb(101, 98, 104);
-    border-radius: 50px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    border: 5px solid rgb(0, 0, 0);
-    box-shadow: 1px 1px 5px 5px red;
-}
 
-.header{
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
-.txt{
-    font-size: x-large;
-    background-color:#acacac ;
-    border-radius: 10px;
-}
-
-#admin{
-    font-size: x-large;
-    background-color:#acacac ;
-    border-radius: 10px;
-    display: none;
-}
-
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-a:visited{
-    text-decoration: none;
-    color: inherit;
-}
-
-#logo{
-    height: 100px;
-    width: 150px;
-    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
-}
-
-#pokeball{
-    height: 100px;
-    width: 100px;
-}
-
-.planificador{
-    margin-top: 50px;
-    width: 80%;
-    height: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-}
-
-.team{
-    background-color: rgb(101, 98, 104);
-    width: 50%;
-    height: 700px;
-    margin-right: 2%;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-   
-}
-
-.poke{
-    background-color: rgb(216, 158, 158);
-    width: 40%;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
-    
-    border: 5px solid black;
-    
-}
-
-.pokediv{
-    display: flex;
-    justify-content: center;
-}
-
-.movsdiv{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    
-}
-
-.pokemon{
-    grid-column: 1;
-    width: 85%;
-    height: 15%;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.movs{
-    grid-column: 2;
-    height: 15%;
-    width: 85%;
-    margin-top: 5px;
-}
-
-.debilidades{
-    background-color: rgb(101, 98, 104);
-    width: 50%;
-    height: 700px;
-    margin-left: 2%;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-}
-
-.tiposimg{
-    width: 150px;
-    height: 70px;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.tipos{
-    display: flex;
-    flex-direction: column;  
-    align-items: center;
-}
-
-.contador{
-    color: red;
-    font-size: xx-large;
+#guardarEquipo {
+    background-color: #979797; 
+    border: 3px solid #ffffff; 
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, transform 0.3s;
     margin-top: auto;
     margin-bottom: auto;
     
+    height: 100px;
+    width: 160px;
+}
+
+#guardarEquipo:hover {
+    background-color: #929290; 
+    transform: translateY(-2px);
+}
+
+#guardarEquipo:active {
+    background-color: #4b4b4b;
+    transform: translateY(2px);
+}
+
+.poke {
+  background-color: rgb(201, 200, 200);
+  width: 40%;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+
+  border: 5px solid black;
+}
+
+.pokediv {
+  display: flex;
+  justify-content: center;
+}
+
+.movsdiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon {
+  grid-column: 1;
+  width: 90%;
+  height: 15%;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 8px;
+}
+
+.movs {
+  grid-column: 2;
+  height: 15%;
+  width: 90%;
+  margin-top: 5px;
+  border-radius: 8px;
+
+}
+
+.debilidades {
+  background-color: rgb(101, 98, 104);
+  width: 50%;
+  height: 700px;
+  margin-left: 0.5%;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  box-shadow: 1px 1px 5px 5px #FFCC03;
+  border: 5px solid rgb(0, 0, 0);
+
+}
+
+.tiposimg {
+  width: 150px;
+  height: 70px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.tipos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contador {
+  color: white;
+  font-size: xx-large;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.contador-negativo {
+  color: red;
+  font-size: xx-large;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.contador-cero {
+  color: white;
+  font-size: xx-large;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.contador-positivo {
+  color: #90ee90;
+  font-size: xx-large;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 

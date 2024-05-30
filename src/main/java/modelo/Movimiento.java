@@ -1,5 +1,12 @@
 package modelo;
 
+/**
+ * Esta clase define objetos Movimiento, contiene un entero (id) y dos String (nombre, tipo). No tiene métodos, unicamente
+ * la utilizamos para crear los objetos y llevarlos al front.
+ * @author Oscar Fuertes Munoz
+ * @version 0.7
+ */
+
 public class Movimiento {
 
 	private int id;
@@ -9,7 +16,13 @@ public class Movimiento {
 	public Movimiento() {
 		
 	}
-
+	
+	/**
+	 * Constructor con 3 parametros
+	 * @param id ID del movimiento
+	 * @param nombre Nombre del movimiento
+	 * @param tipo Tipo del movimiento
+	 */
 	public Movimiento(int id, String nombre, String tipo) {
 		super();
 		this.id = id;

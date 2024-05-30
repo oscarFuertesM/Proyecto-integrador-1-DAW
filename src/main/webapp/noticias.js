@@ -6,7 +6,6 @@ function noticias() {
 			if (xhr.status === 200) {
 				try {
 					resultado = JSON.parse(xhr.responseText);
-					console.log(resultado);
 				} catch (e) {
 					// TODO: handle exception
 
@@ -35,12 +34,11 @@ function generarnoticias(noticia) {
 		div.className = 'publicacion';
 
 		// Aquí es donde se copia el codigo HTML que queremos insertar
-		div.innerHTML = "<h2>" + noticia.titulo + "</h2><p>" + noticia.texto + "</p>";
+		div.innerHTML = "<h2>" + noticia.titulo + "</h2><p>" + noticia.texto + "</p><button><a href='insertarnoticias.html?id="+noticia.idNoti+"'>Editar</a></button>";
 
 		// Metemos el Div dentro del Section
 		section.insertBefore(div, section.firstChild);
 	} else {
-		console.error("FAIL")
 	}
 }
 
@@ -55,6 +53,25 @@ if(datosNoticia){
 window.addEventListener("DOMContentLoaded", generarnoticias());
 
 
+function pruebafetch(idNoti){
+	fetch('EditarNoticia?id='+idNoti)
+	.then(response => response.json())
+	
+}
+
+
+function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		    results = regex.exec(location.search);
+		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	window.addEventListener("DOMContentLoaded", function(){
+		
+		let id = getParameterByName("idNoti");
+		pruebafetch(idNoti);
+	})
 
 
 

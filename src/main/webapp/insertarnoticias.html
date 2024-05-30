@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Insertar Noticias</title>
     <link rel="stylesheet" href="insertarnoticias.css" />
-    <script src="insertarnoticias.js"></script>
   </head>
   <body>
     
-      <div class="head">
-        <ul class="header">
-          <li>
-            <a href="planner.html"><img id="logo" src="image/logo.png" alt="Logo Poke Planner" /></a>
-          </li>
-          <li class="txt"><a href="planner.html">Planificador</a></li>
-          <li class="txt"><a href="noticias.html">Noticias</a></li>
-          <li class="txt"><a href="perfil.html">Perfil</a></li>
-          <li class="txt"><a href="login.html">Iniciar sesión</a></li>
-          <li><img id="pokeball" src="image/pokeball.png" alt="Pokeball" /></li>
-        </ul>
-      </div>
+    <div class="head">
+      <ul class="header">
+        <li>
+          <a href="planner.html"><img id="logo" src="image/logo.png" alt="Logo Poke Planner" /></a>
+        </li>
+        <li class="txt"><a href="planner.html">Planificador</a></li>
+        <li class="txt"><a href="noticias.html">Noticias</a></li>
+        <li class="txt"><a href="perfil.html">Perfil</a></li>
+        <li class="txt" id="login"><a href="login.html">Iniciar sesión</a></li>
+        <li class="txt" id="admin"><a href="insertarnoticias.html">Insertar noticia</a></li>
+		<li class="txt" id="logout"><a href="#">Cerrar Sesión</a></li>
+
+        <li><img id="pokeball" src="image/pokeball.png" alt="Pokeball" /></li>
+      </ul>
+    </div>
 
       <section class="contenedor">
       <div class="insertarnoti">
         <h2>Introducir Noticia</h2>
         <form id="nuevoform" name="noticia" action="GestiónNoticia" method="post">
             <div class="formulario">
+				<input type="hidden" id="id" name="id">
                 <label for="titulo">Título:</label>
                 <input type="text" id="titulo" name="titulo" required>
             </div>
@@ -34,7 +37,7 @@
                 <label for="contenido">Contenido:</label>
                 <textarea id="contenido" name="contenido" rows="12" required></textarea>
             </div>
-            <button type="submit" value="guardar">Guardar Noticia</button>
+            <button type="submit" id="guardar" value="guardar">Guardar Noticia</button>
         </form>
         </div>
         </section>
@@ -48,6 +51,6 @@
 
 
       
-
+	<script src="insertarnoticias.js"></script>
     </body>
     </html>
