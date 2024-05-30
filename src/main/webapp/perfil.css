@@ -113,7 +113,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: 2px solid #2a75bb;
+    box-shadow: 1px 1px 5px 5px #FFCC03;
+  border: 5px solid rgb(0, 0, 0);
 }
 
 .equipo p {

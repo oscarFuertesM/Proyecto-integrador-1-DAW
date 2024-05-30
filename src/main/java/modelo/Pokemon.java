@@ -2,6 +2,12 @@ package modelo;
 
 import java.sql.SQLException;
 
+/**
+ * Esta clase define objetos Pokemon, contiene un entero (id) y tres String (nombre, tipo1, tipo2). No tiene metodos, unicamente
+ * la utilizamos para crear los objetos y llevarlos al front.
+ * @author Oscar Fuertes Munoz
+ * @version 0.7
+ */
 
 public class Pokemon {
 
@@ -14,6 +20,13 @@ public class Pokemon {
 		
 	}
 
+	/**
+	 * Constructor con 4 parametros
+	 * @param id ID del pokemon
+	 * @param nombre Nombre del pokemon
+	 * @param tipo1 Tipo 1 del pokemon
+	 * @param tipo2 Tipo 2 del pokemon
+	 */
 	public Pokemon(int id, String nombre, String tipo1, String tipo2) {
 		super();
 		this.pokedex = id;

@@ -10,8 +10,18 @@ import com.google.gson.Gson;
 
 import modelo.Movimiento;
 
-public class DaoMov {
+/**
+ * Esta es la clase DAO que trabaja con los objetos Movimiento, contiene todos los metodos necesarios para llevar a cabo los
+ * procedimientos requeridos.
+ * @author Oscar Fuertes Munoz
+ * @version 0.7
+ */
 
+public class DaoMov {
+	
+	/**
+	 * Metodo para conectar a la base de datos
+	 */
 	public static Connection con = null;
 
 	public DaoMov() throws SQLException {
@@ -20,6 +30,7 @@ public class DaoMov {
 
 	}
 
+	//Variable de instancia para recoger y almacenar todos los movimientos de la base de datos
 	public ArrayList<Movimiento> listar() throws SQLException {
 
 		String sql = "SELECT * FROM movimientos";
@@ -43,7 +54,11 @@ public class DaoMov {
 		return movs;
 
 	}
-
+	
+	/**
+	 * Metodo para pasar todos los objetos Movimiento a formato JSON
+	 * @return Nos devuelve el String formado por todos los objetos Movimiento en formato JSON
+	 */
 	public String listarJson() throws SQLException {
 
 		String txtJSON = "";

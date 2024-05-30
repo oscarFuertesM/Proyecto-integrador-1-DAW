@@ -103,6 +103,8 @@ a:visited {
   justify-content: space-evenly;
   margin-right: 0.5%;
   box-shadow: 1px 1px 5px 5px #FFCC03;
+  border: 5px solid rgb(0, 0, 0);
+
 }
 
 
@@ -189,6 +191,8 @@ a:visited {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   box-shadow: 1px 1px 5px 5px #FFCC03;
+  border: 5px solid rgb(0, 0, 0);
+
 }
 
 .tiposimg {

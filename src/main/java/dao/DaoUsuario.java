@@ -7,8 +7,17 @@ import java.sql.SQLException;
 
 import modelo.Usuario;
 
-public class DaoUsuario {
+/**
+ * Esta es la clase DAO que trabaja con los objetos Usuario, contiene todos los metodos necesarios para llevar a cabo los
+ * procedimientos requeridos.
+ * @author Oscar Fuertes Munoz
+ * @version 0.7
+ */
 
+public class DaoUsuario {
+	/**
+	 * Metodo para conectar a la base de datos
+	 */
 public static Connection con = null;
 	
 	public DaoUsuario() throws SQLException {
@@ -16,6 +25,10 @@ public static Connection con = null;
 		this.con = ConexionDB.getConexion();
 	}
 	
+	/**
+	 * Metodo para insertar objetos Usuario en la base de datos
+	 * @param x Objeto Usuario que queremos insertar en la base de datos
+	 */
 	public void insertar(Usuario x) throws SQLException {
 		
 		String sql = "INSERT INTO usuarios (nombreUsuario, mailUsuario, permisos) VALUES (?,?,?)";
@@ -29,6 +42,11 @@ public static Connection con = null;
 		
 	}
 	
+	/**
+	 * A este metodo le pasamos un usuario que queremos actualizar para insertar la contrasena, que tambien le pasamos, en la base de datos
+	 * @param y Usuario que queremos actualizar en la base de datos
+	 * @param pass Contrasena que queremos insertar en la base de datos
+	 */
 	public void insertarPass(Usuario y, String pass) throws SQLException {
 		
 		String sql = "UPDATE usuarios SET passUsuario = '" + pass + "' WHERE nombreUsuario = '" + y.getNombre() + "' AND mailUsuario = '" + y.getMail() + "'";
@@ -39,6 +57,13 @@ public static Connection con = null;
 		
 	}
 	
+	/**
+	 * Este metodo recibe un objeto Usuario únicamente con el mail y la contrasena a traves de un String, mediante una consulta
+	 * SQL comprobamos si el mail y contrasena son correctos y nos devuelve toda la informacion del usuario
+	 * @param f Usuario con el mail que queremos comprobar que sea correcto
+	 * @param pass Contrasena que queremos comprobar que sea correcta
+	 * @return Nos devuelve un objeto Usuario con toda la informacion (ID, nombre, mail, permiso)
+	 */
 	public Usuario loging(Usuario f, String pass) throws SQLException {
 		
 		String sql = "SELECT * FROM usuarios WHERE mailUsuario=? AND passUsuario=?";

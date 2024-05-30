@@ -11,10 +11,18 @@ import com.google.gson.Gson;
 
 import modelo.Pokemon;
 
+/**
+ * Esta es la clase DAO que trabaja con los objetos Pokemon, contiene todos los metodos necesarios para llevar a cabo los
+ * procedimientos requeridos.
+ * @author Oscar Fuertes Munoz
+ * @version 0.7
+ */
+
 public class DaoPoke {
 	
-	
-
+	/**
+	 * Metodo para conectar a la base de datos
+	 */
 	public static Connection con = null;
 
 	public DaoPoke() throws SQLException {
@@ -23,7 +31,7 @@ public class DaoPoke {
 
 	}
 	
-	
+	//Variable de instancia para recoger y almacenar todos los Pokemon de la base de datos
 	public ArrayList<Pokemon> listar() throws SQLException{
 		
 		String sql = "SELECT * FROM pokes";
@@ -50,6 +58,10 @@ public class DaoPoke {
 		
 	}
 	
+	/**
+	 * Metodo para pasar todos los objetos Pokemon a formato JSON
+	 * @return Nos devuelve el String formado por todos los objetos Pokemon en formato JSON
+	 */
 	public String listarJson() throws SQLException {
 		
 		String txtJSON = "";
