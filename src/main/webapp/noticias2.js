@@ -36,7 +36,7 @@ function generarnoticias(noticia) {
     }
 }
 
-window.addEventListener("DOMContentLoaded", noticias())
+//window.addEventListener("DOMContentLoaded", noticias())
 
 function aplicarVisibilidadBotones() {
     fetch('obtenerPermisos_id')

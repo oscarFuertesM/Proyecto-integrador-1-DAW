@@ -45,7 +45,7 @@ document.getElementById('logout').addEventListener('click', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     fetch('ListarEquipos', {
         method: 'GET',
         headers: {
@@ -91,7 +91,67 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error al obtener los equipos:', error);
         // window.location.href = 'login.html'; 
     });
+});*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('ListarEquipos', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Usuario no autenticado');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const equiposContainer = document.getElementById('equipos');
+        data.forEach(equipo => {
+            const equipoDiv = document.createElement('div');
+            equipoDiv.classList.add('equipo');
+            
+            const datosEquipo = JSON.parse(equipo.datosEquipo);
+
+            datosEquipo.equipo.forEach(pokemon => {
+                const pokemonDiv = document.createElement('div');
+                pokemonDiv.classList.add('poke');
+
+                const pokemonPDiv = document.createElement('div');
+                pokemonPDiv.classList.add('pokediv');
+                const pokemonP = document.createElement('p');
+                pokemonP.textContent = pokemon.nombre;
+                pokemonP.classList.add('pokemon');
+                pokemonPDiv.appendChild(pokemonP);
+                pokemonDiv.appendChild(pokemonPDiv);
+
+                const movimientosDiv = document.createElement('div');
+                movimientosDiv.classList.add('movsdiv');
+
+                pokemon.movimientos.forEach(mov => {
+                    const movP = document.createElement('p');
+                    movP.textContent = mov;
+                    movP.classList.add('movimiento');
+                    movimientosDiv.appendChild(movP);
+                });
+
+                pokemonDiv.appendChild(movimientosDiv);
+                equipoDiv.appendChild(pokemonDiv);
+            });
+
+            equiposContainer.appendChild(equipoDiv);
+        });
+    })
+    .catch(error => {
+        console.error('Error al obtener los equipos:', error);
+        // window.location.href = 'login.html'; 
+    });
 });
+
+
+
+
 
 
 
